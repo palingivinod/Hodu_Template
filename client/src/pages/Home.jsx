@@ -269,14 +269,16 @@ export default function Home({ ready = true }) {
             <h2 className="people__heading">
               Good architecture requires
               <br />
-              good people behind it.
+              good people
+              <br />
+              behind it.
             </h2>
             <p className="people__desc">
               Our architects, engineers, project managers and site teams work together with a shared
               commitment — to create homes that people are proud to live in.
             </p>
             <Link className="people__btn" to="/contact">
-              Meet our team <span className="arr" aria-hidden="true">→</span>
+              Meet our team
             </Link>
 
             <div className="people__grid" data-cascade>
@@ -310,13 +312,6 @@ export default function Home({ ready = true }) {
                 <span>Tomorrows</span>
               </div>
             </div>
-            <aside className="people__rail" aria-hidden="true">
-              <i />
-              <span>Plan</span>
-              <span>Design</span>
-              <span>Build</span>
-              <span>Deliver</span>
-            </aside>
           </div>
         </div>
       </section>
@@ -348,9 +343,6 @@ export default function Home({ ready = true }) {
                   <p>
                     {item.location} · {item.typology}
                   </p>
-                  <a className="feat-card__link" href="/contact" aria-label={`Enquire about ${item.title}`}>
-                    →
-                  </a>
                 </div>
               </article>
             ))}

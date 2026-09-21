@@ -148,7 +148,7 @@ button { cursor: pointer; border: 0; background: none; }
 }
 
 .sec {
-  padding: clamp(5rem, 11vw, 8.5rem) 0;
+  padding: clamp(3.25rem, 7vw, 5.25rem) 0;
 }
 .sec--warm { background: color-mix(in srgb, var(--warm) 72%, #b9cdc7); }
 .sec--white {
@@ -163,7 +163,7 @@ button { cursor: pointer; border: 0; background: none; }
 .sec--teal .heading { color: #f4f8f7; }
 .sec--teal .lead { color: rgba(244, 248, 247, 0.7); }
 
-/* Preloader � villa elevation draw ? large logo */
+/* Preloader  villa elevation draw ? large logo */
 .boot {
   position: fixed;
   inset: 0;
@@ -490,7 +490,7 @@ button { cursor: pointer; border: 0; background: none; }
 /* STORY */
 .story {
   display: grid;
-  gap: 2.5rem;
+  gap: 1.75rem;
   align-items: center;
 }
 .story__media-wrap {
@@ -517,16 +517,16 @@ button { cursor: pointer; border: 0; background: none; }
 @media (min-width: 960px) {
   .story {
     grid-template-columns: 1fr 1.05fr;
-    gap: 5rem;
+    gap: 3.5rem;
   }
   .story__card { left: -1.5rem; }
 }
 
-/* PHILOSOPHY — editorial reference layout */
+/* PHILOSOPHY â editorial reference layout */
 .phil {
   background:
     linear-gradient(180deg, #d2e3de 0%, #e4efeb 45%, #cfdcd8 100%);
-  padding: clamp(3.5rem, 7vw, 5.5rem) 0 clamp(2.5rem, 5vw, 4rem);
+  padding: clamp(2.75rem, 5.5vw, 4.25rem) 0 clamp(2rem, 4vw, 3.25rem);
 }
 .phil__wrap {
   width: min(100% - clamp(1.5rem, 8vw, 8rem), 1560px);
@@ -732,7 +732,7 @@ button { cursor: pointer; border: 0; background: none; }
 .build-head {
   display: grid;
   gap: 1.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1.75rem;
 }
 @media (min-width: 900px) {
   .build-head {
@@ -785,11 +785,11 @@ button { cursor: pointer; border: 0; background: none; }
   .build-step__img { aspect-ratio: 1; }
 }
 
-/* BUILT TO LAST — editorial quality section */
+/* BUILT TO LAST â editorial quality section */
 .quality {
   background:
     linear-gradient(175deg, #c9dbd6 0%, #dceae5 42%, #c2d4cf 100%);
-  padding: clamp(4rem, 9vw, 7.5rem) 0;
+  padding: clamp(2.75rem, 6vw, 4.5rem) 0;
 }
 .quality__wrap {
   width: min(100% - clamp(1.5rem, 6vw, 4rem), 1500px);
@@ -936,17 +936,17 @@ button { cursor: pointer; border: 0; background: none; }
   .quality__side-label { display: block; }
 }
 
-/* PEOPLE BEHIND HODU — reference editorial layout */
+/* PEOPLE BEHIND HODU â reference editorial layout */
 .people {
   background:
     linear-gradient(160deg, #d8e7e2 0%, #c5d6d1 100%);
-  padding: clamp(3rem, 6vw, 4.75rem) 0;
+  padding: clamp(2rem, 4vw, 3rem) 0 clamp(1.25rem, 2.5vw, 1.75rem);
 }
 .people__wrap {
   width: min(100% - clamp(1.5rem, 7.5vw, 7rem), 1560px);
   margin-inline: auto;
   display: grid;
-  gap: 1.75rem;
+  gap: 1.25rem;
 }
 .people__eyebrow {
   display: flex;
@@ -974,10 +974,10 @@ button { cursor: pointer; border: 0; background: none; }
   font-family: var(--serif);
   font-weight: 500;
   font-size: clamp(2.1rem, 3.8vw, 3.35rem);
-  line-height: 1.05;
+  line-height: 1.12;
   letter-spacing: -0.02em;
   color: #103740;
-  max-width: 14ch;
+  max-width: 16ch;
 }
 .people__desc {
   margin: 1rem 0 0;
@@ -1003,18 +1003,17 @@ button { cursor: pointer; border: 0; background: none; }
   border-radius: 0;
   transition: 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.people__btn .arr { transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+.people__btn .arr { display: none; }
 .people__btn:hover {
   background: #103740;
   color: #fff;
 }
-.people__btn:hover .arr { transform: translateX(4px); }
 
 .people__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
-  margin-top: 2.25rem;
+  margin-top: 1.5rem;
   border-top: 1px solid rgba(16, 55, 64, 0.14);
 }
 .people__skill {
@@ -1054,7 +1053,7 @@ button { cursor: pointer; border: 0; background: none; }
   display: flex;
   align-items: center;
   gap: 0.85rem;
-  margin-top: 1.75rem;
+  margin-top: 1.15rem;
 }
 .people__footer-line span {
   font-size: 0.68rem;
@@ -1074,19 +1073,19 @@ button { cursor: pointer; border: 0; background: none; }
 
 .people__right {
   display: grid;
-  grid-template-columns: 1fr 150px;
-  min-height: 280px;
+  grid-template-columns: 1fr;
+  min-height: 0;
 }
 .people__photo {
   position: relative;
   overflow: hidden;
   background: #d9e2de;
-  min-height: 280px;
+  min-height: 240px;
 }
 .people__photo img {
   width: 100%;
   height: 100%;
-  min-height: 280px;
+  min-height: 240px;
   object-fit: cover;
   display: block;
   transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
@@ -1130,9 +1129,9 @@ button { cursor: pointer; border: 0; background: none; }
 @media (min-width: 960px) {
   .people__wrap {
     grid-template-columns: 0.95fr 1.05fr;
-    gap: clamp(2.5rem, 4vw, 4rem);
+    gap: clamp(1.75rem, 3vw, 2.75rem);
     align-items: start;
-    min-height: 520px;
+    min-height: 0;
   }
   .people__grid {
     grid-template-columns: repeat(4, 1fr);
@@ -1154,17 +1153,14 @@ button { cursor: pointer; border: 0; background: none; }
     padding-left: 1rem;
   }
   .people__right {
-    min-height: 500px;
-    height: 100%;
-    grid-template-columns: 1fr 140px;
+    min-height: 0;
+    height: auto;
+    grid-template-columns: 1fr;
   }
   .people__photo,
   .people__photo img {
-    min-height: 500px;
+    min-height: 380px;
     height: 100%;
-  }
-  .people__rail {
-    min-height: 500px;
   }
 }
 
@@ -1201,15 +1197,15 @@ button { cursor: pointer; border: 0; background: none; }
   justify-content: space-between;
   gap: 1rem;
   align-items: end;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 .feat-grid {
   display: grid;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 .feat-card {
   display: grid;
-  gap: 0.85rem;
+  gap: 0.65rem;
 }
 .feat-card__img {
   aspect-ratio: 4 / 5;
@@ -1235,7 +1231,7 @@ button { cursor: pointer; border: 0; background: none; }
   color: var(--ink);
 }
 @media (min-width: 800px) {
-  .feat-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .feat-grid { grid-template-columns: repeat(3, 1fr); gap: 1.15rem; }
 }
 
 /* LIFESTYLE */
@@ -1279,11 +1275,11 @@ button { cursor: pointer; border: 0; background: none; }
 }
 
 /* WHY HODU */
-/* WHY HODU — campaign editorial section */
+/* WHY HODU â campaign editorial section */
 .why {
   background:
     linear-gradient(180deg, #d0e0db 0%, #e3efeb 50%, #c8d7d2 100%);
-  padding: clamp(3.5rem, 7vw, 5.5rem) 0 clamp(4rem, 8vw, 6rem);
+  padding: clamp(2.75rem, 5.5vw, 4.25rem) 0 clamp(3rem, 6vw, 4.75rem);
 }
 .why__wrap {
   width: min(100% - clamp(1.25rem, 3vw, 2.5rem), 1680px);
@@ -1634,7 +1630,7 @@ button { cursor: pointer; border: 0; background: none; }
 .final-cta__content {
   position: relative;
   z-index: 1;
-  padding: clamp(4.5rem, 10vw, 7rem) 0;
+  padding: clamp(3.25rem, 7vw, 5rem) 0;
 }
 .final-cta .heading {
   color: #fff;
