@@ -39,7 +39,7 @@ export default function Home({ ready = true }) {
                 <span>Beyond</span>
               </span>
               <span className="roll-line">
-                <span>Ordinary</span>
+                <span>Extraordinary</span>
               </span>
             </h1>
             <p className="hero__sub" data-fade>

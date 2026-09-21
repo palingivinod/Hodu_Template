@@ -5,7 +5,7 @@
 
 export const brand = {
   name: 'HODU',
-  tagline: 'Live Beyond Ordinary',
+  tagline: 'Live Beyond Extraordinary',
   ogTitle: 'HODU | Luxury Villas & Contemporary Architecture in Vijayawada',
   description:
     'HODU creates contemporary luxury villas in Vijayawada, designed around natural light, landscape, warm materials and modern family living.',
@@ -359,7 +359,7 @@ export const locationAmenities = [
 
 export const home = {
   heroEyebrow: 'HODU',
-  heroTitle: 'Live Beyond Ordinary',
+  heroTitle: 'Live Beyond Extraordinary',
   heroSub:
     'Contemporary homes designed with intention, built with precision, and created for the way modern families live.',
   scrollHint: 'Scroll',
