@@ -13,7 +13,7 @@ export default function App() {
   return (
     <BrowserRouter>
       {!ready && <Preloader onDone={done} />}
-      <div className={`shell ${ready ? 'is-ready' : ''}`}>
+      <div className={`lux-shell ${ready ? 'is-ready' : ''}`}>
         <Header />
         <Routes>
           <Route path="/" element={<Home ready={ready} />} />

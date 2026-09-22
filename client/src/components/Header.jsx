@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { brand, nav } from '../data/content'
+import { brand } from '../data/content'
 
 export default function Header() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [onHero, setOnHero] = useState(true)
   const location = useLocation()
-  const isHome = location.pathname === '/'
 
   useEffect(() => setOpen(false), [location])
+
   useEffect(() => {
     document.body.classList.toggle('is-locked', open)
     return () => document.body.classList.remove('is-locked')
@@ -17,71 +16,108 @@ export default function Header() {
 
   useEffect(() => {
     const onScroll = () => {
-      const y = window.scrollY
-      setScrolled(y > 48)
-      if (isHome) {
-        const hero = document.getElementById('top')
-        setOnHero(hero ? y < hero.offsetHeight - 80 : y < 500)
-      } else {
-        setOnHero(false)
-      }
+      setScrolled(window.scrollY > 25)
     }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [isHome])
-
-  const solid = !isHome || scrolled || !onHero || open
+  }, [])
 
   return (
     <>
-      <header className={`site-header ${solid ? 'is-solid' : 'is-hero'}`}>
-        <div className="wrap nav">
-          <Link to="/" className="nav__logo" aria-label="HODU home">
-            <img src={brand.logoTransparent} alt="HODU" />
+      <header className={`lux-header ${scrolled ? 'is-scrolled' : ''}`}>
+        <div className="lux-header__inner">
+          {/* Clean Brand Logo */}
+          <Link to="/" className="lux-header__brand" aria-label="HODU Home">
+            <img src={brand.logoTransparent} alt="HODU Luxury Villas" className="lux-header__logo" />
           </Link>
-          <nav className="nav__links" aria-label="Primary">
-            {nav.map((item) => (
-              <NavLink
-                key={item.href}
-                className={({ isActive }) => `nav__link${isActive ? ' is-active' : ''}`}
-                to={item.href}
-                end={item.href === '/'}
-              >
-                {item.label}
-              </NavLink>
-            ))}
+
+          {/* Minimal Clean Navigation */}
+          <nav className="lux-header__nav" aria-label="Main Navigation">
+            <NavLink
+              to="/"
+              end
+              className={({ isActive }) => `lux-nav-item ${isActive ? 'is-active' : ''}`}
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) => `lux-nav-item ${isActive ? 'is-active' : ''}`}
+            >
+              Contact
+            </NavLink>
           </nav>
-          <button
-            type="button"
-            className="nav__burger"
-            aria-label={open ? 'Close menu' : 'Open menu'}
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-          >
-            <i />
-            <i />
-            <i />
-          </button>
+
+          {/* Header Actions */}
+          <div className="lux-header__actions">
+            <button
+              type="button"
+              className={`lux-burger ${open ? 'is-active' : ''}`}
+              aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={open}
+              onClick={() => setOpen((prev) => !prev)}
+            >
+              <span className="lux-burger__bar" />
+              <span className="lux-burger__bar" />
+            </button>
+          </div>
         </div>
       </header>
 
-      <div className={`drawer ${open ? 'is-open' : ''}`} role="dialog" aria-modal="true" aria-label="Menu">
-        <button type="button" className="drawer__close" onClick={() => setOpen(false)}>
-          Close
-        </button>
-        <nav>
-          {nav.map((item) => (
-            <NavLink
-              key={item.href}
-              to={item.href}
-              end={item.href === '/'}
+      {/* Mobile Drawer */}
+      <div className={`lux-drawer ${open ? 'is-open' : ''}`} role="dialog" aria-modal="true" aria-label="Navigation Menu">
+        <div className="lux-drawer__backdrop" onClick={() => setOpen(false)} />
+        <div className="lux-drawer__panel">
+          <div className="lux-drawer__header">
+            <img src={brand.logoTransparent} alt="HODU" className="lux-drawer__logo" />
+            <button
+              type="button"
+              className="lux-drawer__close"
               onClick={() => setOpen(false)}
+              aria-label="Close menu"
             >
-              {item.label}
+              ✕
+            </button>
+          </div>
+
+          <nav className="lux-drawer__nav">
+            <NavLink to="/" end onClick={() => setOpen(false)}>
+              <span>01</span>
+              <strong>Home</strong>
             </NavLink>
-          ))}
-        </nav>
+            <a href="/#villas" onClick={() => setOpen(false)}>
+              <span>02</span>
+              <strong>Luxury Villas</strong>
+            </a>
+            <a href="/#lifestyle" onClick={() => setOpen(false)}>
+              <span>03</span>
+              <strong>Villa Living</strong>
+            </a>
+            <a href="/#why-matrix" onClick={() => setOpen(false)}>
+              <span>04</span>
+              <strong>Why HODU Villas</strong>
+            </a>
+            <a href="/#materiality" onClick={() => setOpen(false)}>
+              <span>05</span>
+              <strong>Villa Materiality</strong>
+            </a>
+            <NavLink to="/contact" onClick={() => setOpen(false)}>
+              <span>06</span>
+              <strong>Contact & Concierge</strong>
+            </NavLink>
+          </nav>
+
+          <div className="lux-drawer__footer">
+            <a href="/#enquire" className="lux-btn-gold is-full" onClick={() => setOpen(false)}>
+              Book Private Visit
+            </a>
+            <div className="lux-drawer__direct">
+              <a href={`tel:${brand.phone.replace(/\s/g, '')}`}>{brand.phone}</a>
+              <a href={`mailto:${brand.email}`}>{brand.email}</a>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   )
