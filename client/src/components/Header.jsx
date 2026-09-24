@@ -1,71 +1,93 @@
-import { useEffect, useState } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import { brand } from '../data/content'
 
-export default function Header() {
-  const [open, setOpen] = useState(false)
+export default function Header({ onOpenEnquire }) {
   const [scrolled, setScrolled] = useState(false)
-  const location = useLocation()
-
-  useEffect(() => setOpen(false), [location])
+  const [mobileNavOpen, setMobileNavOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 30)
-    window.addEventListener('scroll', handleScroll, { passive: true })
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40)
+    }
+    window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const navLinks = [
+    { name: 'Home', href: '#top' },
+    { name: 'About', href: '#about' },
+    { name: 'How We Build', href: '#process' },
+    { name: 'Villas', href: '#villas' },
+    { name: 'Craft', href: '#craft' },
+    { name: 'Contact', href: '#contact' },
+  ]
+
   return (
     <>
-      {/* Transparent Architectural Header */}
-      <header className={`arch-header ${scrolled ? 'is-scrolled' : ''}`}>
-        <div className="arch-container arch-header__inner">
-          {/* Logo Only (Increased Size) */}
-          <Link to="/" className="arch-header__logo-link" aria-label="HODU Home">
-            <img
-              src={brand.logo}
-              alt="HODU"
-              className="arch-header__logo-img"
-            />
-          </Link>
+      <header className={`hodu-header ${scrolled ? 'hodu-header--scrolled' : ''}`}>
+        <div className="hodu-container hodu-header__inner">
+          <a href="#top" className="hodu-header__brand">
+            {brand.name}
+          </a>
 
-          {/* Clean Navigation: Home & Contact */}
-          <nav className="arch-nav" aria-label="Primary Navigation">
-            <NavLink to="/" end className={({ isActive }) => `arch-nav__link ${isActive ? 'is-active' : ''}`}>
-              Home
-            </NavLink>
-            <NavLink to="/contact" className={({ isActive }) => `arch-nav__link ${isActive ? 'is-active' : ''}`}>
-              Contact
-            </NavLink>
+          <nav className="hodu-header__nav" aria-label="Main Navigation">
+            {navLinks.map((link) => (
+              <a key={link.name} href={link.href} className="hodu-header__link">
+                {link.name}
+              </a>
+            ))}
           </nav>
 
-          {/* Header Action Button / Burger */}
-          <div className="arch-header__actions">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
             <button
-              type="button"
-              className={`arch-burger ${open ? 'is-active' : ''}`}
-              onClick={() => setOpen(!open)}
-              aria-label="Toggle navigation"
+              onClick={onOpenEnquire}
+              className={`hodu-btn ${scrolled ? 'hodu-btn--primary' : 'hodu-btn--light'} hodu-header__btn`}
             >
-              <span />
-              <span />
-              <span />
+              START YOUR PROJECT
+            </button>
+
+            <button
+              className="hodu-header__burger"
+              onClick={() => setMobileNavOpen(!mobileNavOpen)}
+              aria-label="Toggle navigation menu"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                {mobileNavOpen ? (
+                  <path d="M18 6L6 18M6 6l12 12" />
+                ) : (
+                  <path d="M4 7h16M4 12h16M4 17h16" />
+                )}
+              </svg>
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Drawer Menu */}
-      {open && (
-        <div className="arch-mobile-menu">
-          <NavLink to="/" end onClick={() => setOpen(false)}>
-            Home
-          </NavLink>
-          <NavLink to="/contact" onClick={() => setOpen(false)}>
-            Contact
-          </NavLink>
+      {/* Mobile Drawer */}
+      <div className={`hodu-mobile-nav ${mobileNavOpen ? 'hodu-mobile-nav--open' : ''}`}>
+        <div className="hodu-mobile-nav__links">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="hodu-mobile-nav__link"
+              onClick={() => setMobileNavOpen(false)}
+            >
+              {link.name}
+            </a>
+          ))}
         </div>
-      )}
+        <button
+          onClick={() => {
+            setMobileNavOpen(false)
+            onOpenEnquire()
+          }}
+          className="hodu-btn hodu-btn--primary"
+          style={{ width: '100%' }}
+        >
+          START YOUR PROJECT
+        </button>
+      </div>
     </>
   )
 }

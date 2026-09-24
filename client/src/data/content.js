@@ -1,279 +1,275 @@
 /**
- * HODU Luxury Villas - Clean & Humanized Content
- * Simple, natural English with essential details.
- * Exactly 4 curated images across the entire website.
+ * HODU — Premium Nature-Led Villa Construction Website Data
+ * Editorial, architectural content reflecting: Nature + Architecture + Craft + Privacy + Premium Living
  */
 
 export const brand = {
   name: 'HODU',
-  fullName: 'HODU Luxury Villas',
-  tagline: 'Custom Luxury Villas in Vijayawada',
-  ogTitle: 'HODU | Luxury Villas in Vijayawada',
+  fullName: 'HODU Villa Design & Construction',
+  tagline: 'Villas, Rooted in Nature.',
+  ogTitle: 'HODU | Premium Nature-Led Villa Construction',
   description:
-    'HODU builds private 4 & 5 BHK luxury villas in Vijayawada with open courtyards, swimming pools, and solid quality construction.',
-  logo: '/brand/logo-transparent.png',
-  logoTransparent: '/brand/logo-transparent.png',
+    'HODU designs and builds premium private villas, bringing architecture, construction, interiors and natural landscape together through one complete process.',
   phone: '+91 99999 99999',
   email: 'enquiries@hodu.in',
   location: 'Vijayawada, Andhra Pradesh',
-  address: 'Near Benz Circle Corridor, Vijayawada, AP 520008',
-  officeHours: 'Monday – Sunday: 9:00 AM – 7:30 PM',
-  reraNumber: 'P03240010982 (AP RERA Approved)',
-  socials: [
-    { name: 'Instagram', url: 'https://instagram.com', icon: '📸' },
-    { name: 'YouTube', url: 'https://youtube.com', icon: '▶️' },
-    { name: 'LinkedIn', url: 'https://linkedin.com', icon: '💼' },
-    { name: 'Facebook', url: 'https://facebook.com', icon: '👥' },
-    { name: 'WhatsApp', url: 'https://wa.me/919999999999', icon: '💬' },
+  address: 'Vijayawada, Andhra Pradesh 520008',
+  reraNumber: 'AP RERA Approved Villa Construction',
+}
+
+export const heroData = {
+  eyebrow: 'LUXURY VILLA DESIGN & CONSTRUCTION',
+  title: 'VILLAS, ROOTED IN NATURE.',
+  subtitle:
+    'Thoughtfully designed and built homes where architecture, landscape and everyday life exist together.',
+  ctaPrimary: 'START YOUR PROJECT',
+  ctaSecondary: 'OUR APPROACH',
+  videoSrc: '/videos/hero_banner.mp4',
+  fallbackImg: '/media/hero.png',
+  badge: 'NATURE-INTEGRATED ARCHITECTURE',
+}
+
+export const introData = {
+  eyebrow: 'THE HODU APPROACH',
+  headingLine1: "WE DON'T SIMPLY BUILD VILLAS.",
+  headingLine2: 'WE BUILD PLACES TO LIVE NATURALLY.',
+  body:
+    'Every HODU home begins with an understanding of the land, the natural breeze, sunlight patterns, and the people who will live there. From architecture and engineering to construction, interiors and native landscape, we bring the entire process together under one roof.',
+  blocks: [
+    {
+      num: '01',
+      title: 'ARCHITECTURE',
+      desc: 'Designed around natural light, courtyard proportions and effortless indoor-outdoor flow.',
+    },
+    {
+      num: '02',
+      title: 'LANDSCAPE',
+      desc: 'Native trees, garden pathways and reflection ponds planned alongside the villa structure.',
+    },
+    {
+      num: '03',
+      title: 'CRAFT',
+      desc: 'Natural stone, teak wood and concrete details carefully built to age gracefully over time.',
+    },
   ],
 }
 
-// Exactly 4 curated images across the entire website
-export const media = {
-  hero: '/media/hero.png', // Image 1: Main Villa View
-  strategy: '/media/hodu-team-architecture.png', // Image 2: Architectural Team & Planning
-  villa: '/media/hodu-quality-villa.png', // Image 3: Villa Models
-  courtyard: '/media/hodu-why-hero.png', // Image 4: Courtyard Living
+export const naturePillarsData = {
+  eyebrow: 'BIOPHILIC LIVING & MICROCLIMATE',
+  heading: 'DESIGNED IN HARMONY WITH NATURE.',
+  subheading:
+    'We don’t treat landscape as decoration added at the end. Nature shapes the floor plan, ventilation, daylight, and daily rhythm of every HODU villa.',
+  pillars: [
+    {
+      num: '01',
+      title: 'Courtyard Microclimate',
+      desc: 'Central sky-open courtyards act as natural air scoops, bringing continuous cross-breeze and soft morning daylight into living spaces while keeping homes naturally cool.',
+      icon: '🌿',
+    },
+    {
+      num: '02',
+      title: 'Tree-Preserving Architecture',
+      desc: 'Villa layouts are contoured around existing mature trees and natural topography, creating private garden viewports from master suites and family lounges.',
+      icon: '🌳',
+    },
+    {
+      num: '03',
+      title: 'Earth & Stone Tactility',
+      desc: 'Hand-cut local granite, unpolished sandstone walls, and natural teak wood louvers ground the home and weather beautifully with sunlight and rain.',
+      icon: '🪨',
+    },
+    {
+      num: '04',
+      title: 'Shaded Verandas & Water Play',
+      desc: 'Deep cantilevered roof overhangs shield living areas from harsh afternoon heat, while reflection ponds create gentle evaporative cooling across open verandas.',
+      icon: '💧',
+    },
+  ],
 }
 
-export const aboutHodu = {
-  tag: 'ABOUT HODU',
-  title: 'Custom Luxury Villas in Vijayawada',
-  lead:
-    'HODU is dedicated to designing and building low-density private luxury villas that combine world-class architecture, solid engineering, and generous living spaces.',
-  story: [
-    'Founded with a clear commitment to excellence, HODU crafts private luxury villas in Vijayawada where architecture, landscape, and light exist in complete harmony.',
-    'Every villa is built with open-sky courtyards, private swimming pools, and spacious 4 & 5 BHK floor plans built to the highest structural standards.'
-  ],
+export const archNatureData = {
+  eyebrow: 'DESIGNED AROUND THE LAND',
+  heading: 'A HOME THAT BELONGS TO ITS SETTING.',
+  copy:
+    'From private courtyards and shaded verandas to garden-facing rooms and raw natural stone, every architectural decision creates a deeper connection between your villa and the surrounding environment.',
   features: [
-    {
-      id: 'architect',
-      title: 'Architect-Led Customization',
-      desc: 'Work directly with our design and engineering team to tailor bedroom configurations, internal finishes, and family zones.',
-    },
-    {
-      id: 'climate',
-      title: '100% Vastu & Natural Climate',
-      desc: 'Vastu-compliant layouts oriented for optimal morning sunlight, gentle cross-breeze, and central cooling courtyards.',
-    },
-    {
-      id: 'structure',
-      title: 'Solid Generational Construction',
-      desc: 'Deep pile foundations, earthquake-resistant monolithic RCC frames, and weather-defying natural stone exteriors.',
-    },
-    {
-      id: 'location',
-      title: 'Exclusive Gated Sanctuary',
-      desc: 'A serene 4.2-acre private enclave located just 12 minutes from Benz Circle, balancing peace with prime urban access.',
-    }
-  ]
+    'Abundant natural daylight',
+    'Private sky courtyards',
+    'Seamless garden connections',
+    'Shaded indoor / outdoor verandas',
+    'Native flora & mature trees',
+    'Natural stone & timber finishes',
+  ],
+  image: '/media/hodu-quality-villa.png',
 }
 
-export const strategicPillars = [
-  {
-    num: '01',
-    title: 'Open Courtyards & Sunlight',
-    subtitle: 'Fresh air & natural cooling',
-    description:
-      'Every villa is built around an open courtyard that brings in morning sunlight and gentle breeze, keeping your home naturally cool and private.',
-    points: [
-      'Floor-to-ceiling glass for natural light',
-      'Continuous fresh air cross-ventilation',
-      'Private internal garden & water pond',
-    ],
-  },
-  {
-    num: '02',
-    title: 'Custom Plans for Your Family',
-    subtitle: 'Designed around how you live',
-    description:
-      'Sit down directly with our architects to adjust room sizes, kitchen layouts, or add a home theatre before construction begins.',
-    points: [
-      'Direct one-on-one architect meetings',
-      'Option to customize bedroom sizes',
-      'Flexible elevator and pool placement',
-    ],
-  },
-  {
-    num: '03',
-    title: 'Strong Build & 10-Year Warranty',
-    subtitle: 'Engineered for peace of mind',
-    description:
-      'Built with deep pile foundation, earthquake-resistant concrete framing, and heat-blocking clay bricks that keep Vijayawada summer heat out.',
-    points: [
-      'Earthquake-resistant RCC structure',
-      'Thermal clay blocks for cooler rooms',
-      '10-year multi-layer waterproofing warranty',
-    ],
-  },
-  {
-    num: '04',
-    title: 'Premium Materials That Last',
-    subtitle: 'Finishes that look great for decades',
-    description:
-      'Real Italian marble flooring, 8-foot solid teakwood main doors, double-glazed windows that block street noise, and top German bathroom fittings.',
-    points: [
-      'Italian Statuario marble in living zones',
-      'Seasoned teakwood doors with digital locks',
-      'German Hansgrohe / Kohler fittings',
-    ],
-  },
-]
+export const processData = {
+  eyebrow: 'HOW WE BUILD',
+  heading: 'FROM FIRST IDEA TO FINAL HANDOVER.',
+  steps: [
+    {
+      step: '01',
+      title: 'UNDERSTAND',
+      desc: 'Site topography, orientation, tree canopy, lifestyle requirements and vision.',
+    },
+    {
+      step: '02',
+      title: 'DESIGN',
+      desc: 'Architectural floor plans, courtyard layout, landscape integration and material selection.',
+    },
+    {
+      step: '03',
+      title: 'BUILD',
+      desc: 'Structural engineering, monolithic RCC framing, natural stone masonry and site supervision.',
+    },
+    {
+      step: '04',
+      title: 'FINISH',
+      desc: 'Bespoke interior woodwork, landscape planting, stone polishing and custom detailing.',
+    },
+    {
+      step: '05',
+      title: 'HANDOVER',
+      desc: 'A complete, serene nature-rooted villa ready to live in.',
+    },
+  ],
+}
 
-export const executionPhases = [
-  {
-    phase: '01',
-    title: 'Soil Testing & Deep Foundation',
-    detail: 'Extensive soil testing and deep concrete piling to guarantee a rock-solid foundation.',
-  },
-  {
-    phase: '02',
-    title: 'Concrete Pillar & Roof Framing',
-    detail: 'High-strength concrete framing that allows large, column-free living rooms.',
-  },
-  {
-    phase: '03',
-    title: 'Clay Brick Walls & Soundproofing',
-    detail: 'Thermal acoustic clay bricks that keep the villa cool and block outdoor noise.',
-  },
-  {
-    phase: '04',
-    title: 'Concealed Electrical & AC Piping',
-    detail: 'Hidden VRV air conditioning lines, smart home wiring, and heavy-duty copper cables.',
-  },
-  {
-    phase: '05',
-    title: 'Marble Flooring & Teakwood Doors',
-    detail: 'Polished Italian marble, 8ft teakwood doors, and sound-insulating glass windows.',
-  },
-  {
-    phase: '06',
-    title: '150-Point Quality Check & Handover',
-    detail: 'Thorough inspection of every room, plumbing line, and electrical point before handing you the keys.',
-  },
-]
+export const materialsData = {
+  eyebrow: 'NATURAL MATERIALS & CRAFT',
+  heading: 'MATERIALS THAT AGE WITH THE HOME.',
+  subtitle: 'Tactile, durable natural elements selected to weather beautifully and anchor the architecture.',
+  items: [
+    {
+      title: 'STONE',
+      desc: 'Grounded, tactile and timeless local granite and sandstone.',
+      image: '/media/hodu-philosophy-material.png',
+    },
+    {
+      title: 'WOOD',
+      desc: 'Natural warmth and texture from responsibly sourced teak.',
+      image: '/media/hodu-quality-material.png',
+    },
+    {
+      title: 'CONCRETE',
+      desc: 'Structural strength, architectural simplicity and thermal mass.',
+      image: '/media/hodu-why-detail.png',
+    },
+    {
+      title: 'LANDSCAPE',
+      desc: 'A living layer of native foliage, trees and garden paths.',
+      image: '/media/hodu-philosophy-landscape.png',
+    },
+  ],
+}
 
-export const luxuryVillas = [
-  {
-    id: 'signature',
-    name: 'The Signature Villa',
-    typology: '5 BHK Luxury Villa',
-    builtUpArea: '6,200 sq. ft.',
-    plotArea: '450 sq. yds.',
-    floors: 'G + 2 Floors',
-    bedrooms: '5 Bedrooms',
-    facing: 'East / North Options',
-    parking: '3 Car Parks',
-    pool: 'Private Pool & Deck',
-    description:
-      'Spacious 5-bedroom villa with high-ceiling living room, private swimming pool, and central courtyard.',
-    highlights: [
-      'High-ceiling living room (22 ft)',
-      'Private swimming pool with deck',
-      'Master suite with private terrace',
-      'Home theatre & separate servant room',
-    ],
-  },
-  {
-    id: 'cornerstone',
-    name: 'Cornerstone Villa',
-    typology: '4 BHK Family Villa',
-    builtUpArea: '5,400 sq. ft.',
-    plotArea: '380 sq. yds.',
-    floors: 'G + 1 + Terrace',
-    bedrooms: '4 Bedrooms',
-    facing: 'East Facing',
-    parking: '2 Car Parks',
-    pool: 'Courtyard Reflection Pool',
-    description:
-      'Comfortable 4-bedroom family villa built around an open courtyard with quiet study and rooftop garden.',
-    highlights: [
-      'Central open-to-sky courtyard',
-      'Separate show & wet kitchens',
-      'Private study & library room',
-      'Rooftop terrace with pergola',
-    ],
-  },
-  {
-    id: 'pavilion',
-    name: 'Terrace Pavilion Villa',
-    typology: '5 BHK Grand Villa',
-    builtUpArea: '7,100 sq. ft.',
-    plotArea: '520 sq. yds.',
-    floors: 'G + 2 + Roof Lounge',
-    bedrooms: '5 Bedrooms',
-    facing: 'North-East Corner',
-    parking: '4 Car Parks',
-    pool: 'Rooftop Infinity Pool',
-    description:
-      'Grand 5-bedroom villa with private rooftop pool, sky lounge, and private elevator shaft.',
-    highlights: [
-      'Rooftop infinity swimming pool',
-      'Private home elevator shaft',
-      '4 covered car parking spaces',
-      '2 master suites with walk-in closets',
-    ],
-  },
-]
+export const projectsData = {
+  eyebrow: 'SELECTED RESIDENCES',
+  heading: 'HOMES DESIGNED AROUND THEIR SETTING.',
+  subheading: 'Each villa begins with its site, its people and the way they want to live.',
+  list: [
+    {
+      id: 'villa-01',
+      tag: 'VILLA 01',
+      title: 'The Courtyard Residence',
+      subtitle: 'Contemporary Private Courtyard Villa',
+      location: 'Vijayawada, Andhra Pradesh',
+      area: '4,800 sq.ft.',
+      scope: 'Architecture · Construction · Interiors · Landscape',
+      natureFeature: 'Central Sky Courtyard · Water Reflecting Pond · Teak Louvers',
+      image: '/media/hodu-why-hero.png',
+    },
+    {
+      id: 'villa-02',
+      tag: 'VILLA 02',
+      title: 'The Pavilion & Stone Villa',
+      subtitle: 'Earthy Modern Multigenerational Home',
+      location: 'Vijayawada, Andhra Pradesh',
+      area: '5,400 sq.ft.',
+      scope: 'Architecture · Structural Build · Custom Finishes',
+      natureFeature: 'Raw Stone Masonry · Shaded Verandas · Mature Tree Court',
+      image: '/media/hodu-why-living.png',
+    },
+    {
+      id: 'villa-03',
+      tag: 'VILLA 03',
+      title: 'The Veranda Estate',
+      subtitle: 'Garden Sanctuary Villa',
+      location: 'Vijayawada, Andhra Pradesh',
+      area: '6,200 sq.ft.',
+      scope: 'Turnkey Design, Build & Landscape',
+      natureFeature: '360° Garden Aspect · Floor-to-Ceiling Glass · Native Greenery',
+      image: '/media/hodu-philosophy-space.png',
+    },
+  ],
+}
 
-export const masterSpecs = [
-  {
-    category: 'Foundation & Walls',
-    items: [
-      'Deep pile foundation with earthquake-resistant concrete framing',
-      'Thermal clay brick walls that naturally keep rooms cool',
-      'Multi-layer waterproofing on foundation, bathrooms, and terrace',
-    ],
-  },
-  {
-    category: 'Flooring & Finishes',
-    items: [
-      'Imported Italian marble in living room, dining, and stairs',
-      'Engineered wood flooring in master bedroom suites',
-      'Anti-skid stone tiles for balconies and pool area',
-    ],
-  },
-  {
-    category: 'Doors & Windows',
-    items: [
-      '8-foot Burma teakwood main door with digital smart lock',
-      'Double-glazed glass windows that block heat and noise',
-      'Premium internal veneer doors with soft-closing magnetic latches',
-    ],
-  },
-  {
-    category: 'Electrical & Bathrooms',
-    items: [
-      'Top German Hansgrohe / Kohler bathroom fittings and rain showers',
-      'Concealed copper wiring with Schneider / Legrand modular switches',
-      'VRV central air-conditioning piping and smart automation wiring',
-    ],
-  },
-]
+export const whyHoduData = {
+  eyebrow: 'INTEGRATED BUILD MODEL',
+  headingLine1: 'ONE TEAM.',
+  headingLine2: 'ONE ACCOUNTABLE PROCESS.',
+  statement:
+    'From the first conversation to the final handover, HODU keeps the entire villa journey connected.',
+  points: [
+    {
+      num: '01',
+      title: 'ARCHITECTURE',
+      desc: 'A considered design centered on sunlight, breeze and natural site flow.',
+    },
+    {
+      num: '02',
+      title: 'ENGINEERING',
+      desc: 'Structure and thermal planning integrated into the architectural frame.',
+    },
+    {
+      num: '03',
+      title: 'CONSTRUCTION',
+      desc: 'Professional site execution, stone craftsmanship and supervisory rigor.',
+    },
+    {
+      num: '04',
+      title: 'INTERIORS',
+      desc: 'Natural materials, wood finishes and custom details aligned with the architecture.',
+    },
+    {
+      num: '05',
+      title: 'LANDSCAPE',
+      desc: 'Outdoor gardens, courtyards and water features designed as part of the home.',
+    },
+  ],
+}
 
-export const connectivity = [
-  { destination: 'Benz Circle', time: '12 Mins' },
-  { destination: 'NH-16 Highway', time: '10 Mins' },
-  { destination: 'Mangalagiri & IT Hub', time: '20 Mins' },
-  { destination: 'Vijayawada Airport', time: '35 Mins' },
-  { destination: 'Top Schools & Hospitals', time: '10–15 Mins' },
-]
+export const natureFeatureData = {
+  heading: 'LET THE LAND BECOME PART OF THE HOME.',
+  copy:
+    'Landscape is not decoration added at the end. It shapes how a villa feels, how light enters, how rooms connect and how everyday life unfolds.',
+  image: '/media/hodu-philosophy-landscape.png',
+}
 
-export const faqs = [
-  {
-    q: 'Can I customize the floor plan and room sizes?',
-    a: 'Yes. You can work directly with our architects to adjust room layouts, bedroom sizes, and kitchen positions before construction begins.',
+export const ctaData = {
+  headingLine1: 'YOUR LAND HAS A STORY.',
+  headingLine2: "LET'S BUILD THE HOME AROUND IT.",
+  copy: 'Tell us about your site, your vision and the home you want to create.',
+  primaryBtn: 'START YOUR PROJECT',
+  secondaryBtn: 'CONTACT HODU',
+}
+
+export const footerData = {
+  brandName: 'HODU',
+  description: 'Premium nature-led villa design and construction, from architecture to handover.',
+  navLinks: [
+    { name: 'Home', href: '#top' },
+    { name: 'About', href: '#about' },
+    { name: 'Nature Integration', href: '#biophilic' },
+    { name: 'How We Build', href: '#process' },
+    { name: 'Villas', href: '#villas' },
+    { name: 'Craft', href: '#craft' },
+    { name: 'Contact', href: '#contact' },
+  ],
+  contact: {
+    phone: '+91 99999 99999',
+    email: 'enquiries@hodu.in',
+    location: 'Vijayawada, Andhra Pradesh',
   },
-  {
-    q: 'Is the project approved and legally clear?',
-    a: 'Yes. The project is approved by AP RERA (Registration: P03240010982) with 100% clear legal titles and bank approvals.',
-  },
-  {
-    q: 'What is the payment schedule?',
-    a: 'Payments are linked to construction milestones (foundation, roof casting, brickwork, and finishing). Home loans are available from SBI, HDFC, and ICICI.',
-  },
-  {
-    q: 'How do I visit the site?',
-    a: 'You can submit the form on this page or call +91 99999 99999 to schedule a private visit. We will arrange a personal walkthrough for you.',
-  },
-]
+  copyright: '© 2026 HODU. All rights reserved.',
+}

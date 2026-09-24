@@ -1,38 +1,45 @@
-import { home, media } from '../data/content'
+import { heroData } from '../data/content'
 
-export default function Hero() {
+export default function Hero({ onOpenEnquire }) {
   return (
-    <section className="hero" id="top" aria-label="HODU hero">
-      <div className="hero__media media">
+    <section className="hodu-hero" id="top">
+      <div className="hodu-hero__bg">
         <video
-          src={media.heroVideo}
-          poster={media.heroStill}
           autoPlay
-          muted
           loop
+          muted
           playsInline
-          preload="metadata"
-        />
+          poster={heroData.fallbackImg}
+          className="hodu-hero__video"
+        >
+          <source src={heroData.videoSrc} type="video/mp4" />
+          <img src={heroData.fallbackImg} alt="HODU Luxury Villa" className="hodu-hero__img" />
+        </video>
       </div>
-      <div className="hero__overlay" aria-hidden="true" />
-      <div className="wrap hero__content" data-fade>
-        <p className="hero__meta">Vijayawada · India</p>
-        <h1 className="hero__brand">{home.heroEyebrow}</h1>
-        <p className="hero__title">{home.heroTitle}</p>
-        <p className="hero__sub">{home.heroSub}</p>
-        <div className="hero__actions">
-          <a className="btn btn--fill" href="#villas">
-            View projects
-          </a>
-          <a className="btn btn--ghost" href="#enquire">
-            Enquire now
-          </a>
+
+      <div className="hodu-container hodu-hero__container">
+        <div className="hodu-hero__content">
+          <span className="hodu-hero__eyebrow">{heroData.eyebrow}</span>
+          <h1 className="hodu-hero__title">{heroData.title}</h1>
+          <p className="hodu-hero__subtitle">{heroData.subtitle}</p>
+
+          <div className="hodu-hero__actions">
+            <button onClick={onOpenEnquire} className="hodu-btn hodu-btn--light">
+              {heroData.ctaPrimary}
+            </button>
+            <a href="#about" className="hodu-btn hodu-btn--outline-light">
+              {heroData.ctaSecondary}
+            </a>
+          </div>
         </div>
       </div>
-      <div className="hero__scroll" aria-hidden="true">
-        Scroll
-        <span />
-      </div>
+
+      <a href="#about" className="hodu-hero__scroll" aria-label="Scroll to content">
+        <div className="hodu-hero__scroll-icon">
+          <div className="hodu-hero__scroll-dot" />
+        </div>
+        <span>EXPLORE SANCTUARY</span>
+      </a>
     </section>
   )
 }
