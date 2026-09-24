@@ -1,680 +1,504 @@
 import { useState } from 'react'
 import EnquireForm from '../components/EnquireForm'
 import {
-  buildProcess,
+  aboutHodu,
+  brand,
   connectivity,
+  executionPhases,
   faqs,
-  lifeMoments,
-  locationAmenities,
   luxuryVillas,
+  masterSpecs,
   media,
-  teamExpertise,
-  whyHodu,
+  strategicPillars,
 } from '../data/content'
-import useMotion from '../hooks/useMotion'
 
-export default function Home({ ready = true }) {
-  const root = useMotion(ready)
+function FeatureIcon({ id }) {
+  switch (id) {
+    case 'architect':
+      return (
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.5L21.174 6.812z" />
+          <path d="m15 5 4 4" />
+          <path d="m9 11 4 4" />
+        </svg>
+      )
+    case 'climate':
+      return (
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+        </svg>
+      )
+    case 'structure':
+      return (
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M3 21h18M3 7h18M12 3L2 7h20L12 3zM6 7v14M10 7v14M14 7v14M18 7v14" />
+        </svg>
+      )
+    case 'location':
+      return (
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+          <circle cx="12" cy="10" r="3" />
+        </svg>
+      )
+    default:
+      return null
+  }
+}
 
-  // 1. Villa Tab State
-  const [activeVillaTab, setActiveVillaTab] = useState('all')
+export default function Home() {
+  const [activeVilla, setActiveVilla] = useState(0)
+  const currentVilla = luxuryVillas[activeVilla]
 
-  // 2. Materiality Studio State
-  const [activeMaterial, setActiveMaterial] = useState(0)
-  const materialList = [
-    {
-      id: 'stone',
-      name: 'Natural Architectural Stone',
-      tag: 'TEXTURE & PERMANENCE',
-      image: '/media/hodu-quality-material.png',
-      desc: 'Hand-selected natural granite and sandstone with fluted finishes, providing structural thermal mass and timeless geological character to each villa.',
-      specs: ['Thermal insulation', 'Natural weathering', 'Hand-chiselled textures'],
-    },
-    {
-      id: 'timber',
-      name: 'Seasoned Teak & Accoya Wood',
-      tag: 'ORGANIC WARMTH',
-      image: '/media/hodu-philosophy-material.png',
-      desc: 'Sustainably sourced timber battens and ceiling claddings that soften geometric lines and introduce sensory warmth across private villa suites.',
-      specs: ['FSC-Certified hardwood', 'Acoustic dampening', 'Moisture resistant treatment'],
-    },
-    {
-      id: 'glass',
-      name: 'Acoustic Low-E Glazing',
-      tag: 'NATURAL LIGHT & VIEWS',
-      image: '/media/hodu-philosophy-light.png',
-      desc: 'Floor-to-ceiling motorized slimline glass panels dissolving the physical boundary between climate-controlled villa interiors and lush private courtyards.',
-      specs: ['UV & Heat rejection', 'Acoustic STC 42', 'Minimalist 18mm sightlines'],
-    },
-    {
-      id: 'metal',
-      name: 'Titanium & Bronze Finishes',
-      tag: 'ENGINEERED PRECISION',
-      image: '/media/hodu-philosophy-space.png',
-      desc: 'Brushed anodized bronze and titanium accents detailing fenestration reveals, custom ironmongery, and architectural cantilever fascias.',
-      specs: ['Corrosion-proof grade', 'Zero maintenance', 'Precision CNC detailing'],
-    },
-    {
-      id: 'landscape',
-      name: 'Private Biophilic Courtyards',
-      tag: 'NATIVE ECOSYSTEM',
-      image: '/media/hodu-philosophy-landscape.png',
-      desc: 'Native flora, private water reflection ponds, and stepped landscape verandas designed to cool ambient microclimate naturally.',
-      specs: ['Drip irrigation system', 'Indigenous shade trees', 'Reflecting rainwater ponds'],
-    },
-  ]
-
-  // 3. Milestone Active Step State
-  const [activeStep, setActiveStep] = useState(0)
-
-  // 4. FAQ Accordion State
-  const [openFaq, setOpenFaq] = useState(null)
-
-  const toggleFaq = (index) => {
-    setOpenFaq(openFaq === index ? null : index)
+  const [openFaq, setOpenFaq] = useState(0)
+  const toggleFaq = (idx) => {
+    setOpenFaq(openFaq === idx ? null : idx)
   }
 
-  // Filtered villas
-  const filteredVillas =
-    activeVillaTab === 'all'
-      ? luxuryVillas
-      : luxuryVillas.filter((v) => v.id === activeVillaTab)
-
   return (
-    <main ref={root} className="lux-main">
-      {/* ========================================================
-          1. HERO SECTION: CINEMATIC LUXURY VILLA SHOWCASE
-          (EYEBROWS & SCROLLING TICKER REMOVED AS REQUESTED)
-      ======================================================== */}
-      <section className="lux-hero" id="top">
-        <div className="lux-hero__backdrop">
+    <main className="arch-main">
+      {/* =========================================================================
+          1. HERO SECTION (Image #1: /media/hero.png)
+      ========================================================================= */}
+      <section className="arch-hero" id="top">
+        <div className="arch-hero__bg">
           <img
             src={media.hero}
-            alt="HODU Bespoke Luxury Villa"
-            className="lux-hero__img"
+            alt="HODU Luxury Villas in Vijayawada"
+            className="arch-hero__img"
             fetchPriority="high"
           />
-          <div className="lux-hero__overlay" />
+          <div className="arch-hero__overlay" />
         </div>
 
-        <div className="lux-wrap lux-hero__content">
-          <h1 className="lux-hero__title" data-roll>
-            <span className="roll-line">
-              <span>SCULPTED BY LIGHT.</span>
-            </span>
-            <span className="roll-line">
-              <span>CRAFTED FOR LUXURY.</span>
-            </span>
-            <span className="roll-line">
-              <span className="lux-gold-gradient">HODU LUXURY VILLAS.</span>
-            </span>
-          </h1>
+        <div className="arch-container arch-hero__container">
+          <div className="arch-hero__content">
+            <div className="arch-tag arch-hero__tag">VIJAYAWADA GATED COMMUNITY</div>
+            <h1 className="arch-hero__title">
+              Luxury Villas in Vijayawada
+            </h1>
+            <p className="arch-hero__subtitle">
+              Private 4 &amp; 5 BHK custom villas with open courtyards and swimming pools.
+            </p>
 
-          <p className="lux-hero__lead" data-fade>
-            Bespoke private luxury villas in Vijayawada, balancing natural light, private green
-            courtyards, and timeless materials for an extraordinary way of living.
-          </p>
-
-          <div className="lux-hero__actions" data-fade>
-            <a href="#villas" className="lux-btn-gold is-large">
-              <span>Explore Luxury Villas</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </a>
-            <a href="#enquire" className="lux-btn-glass is-large">
-              <span>Book Private Visit</span>
-            </a>
-          </div>
-
-          {/* Quick HUD Metrics */}
-          <div className="lux-hero__hud" data-fade>
-            <div className="lux-hud-stat">
-              <span className="lux-hud-num">100%</span>
-              <span className="lux-hud-label">Villa Architecture</span>
-            </div>
-            <div className="lux-hud-sep" />
-            <div className="lux-hud-stat">
-              <span className="lux-hud-num">4.2</span>
-              <span className="lux-hud-label">Acre Private Enclave</span>
-            </div>
-            <div className="lux-hud-sep" />
-            <div className="lux-hud-stat">
-              <span className="lux-hud-num">03</span>
-              <span className="lux-hud-label">Curated Villa Typologies</span>
-            </div>
-            <div className="lux-hud-sep" />
-            <div className="lux-hud-stat">
-              <span className="lux-hud-num">VIP</span>
-              <span className="lux-hud-label">Vijayawada, India</span>
+            <div className="arch-hero__actions">
+              <a href="#villas" className="arch-btn arch-btn--gold arch-btn--lg">
+                Explore Villa Plans
+              </a>
+              <a href="#enquire" className="arch-btn arch-btn--outline arch-btn--lg">
+                Book a Visit
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ========================================================
-          2. EXCLUSIVE LUXURY VILLAS (COMPACT & BALANCED)
-      ======================================================== */}
-      <section className="lux-section lux-section--obsidian" id="villas">
-        <div className="lux-wrap">
-          <div className="lux-section-header" data-fade>
-            <div className="lux-section-header__left">
-              <span className="lux-tag">THE VILLA COLLECTION</span>
-              <h2 className="lux-heading">
-                Exclusive Luxury Villas.
-                <br />
-                <span className="lux-gold-gradient">Individually Sculpted.</span>
-              </h2>
-            </div>
-            <div className="lux-section-header__right">
-              <p className="lux-lead">
-                Every villa is conceived as a private masterpiece—framing secluded courtyards, private
-                pools, and double-height living spaces.
+      {/* =========================================================================
+          2. ABOUT HODU SECTION
+      ========================================================================= */}
+      <section className="arch-section arch-section--white" id="about">
+        <div className="arch-container">
+          <div className="arch-about-head">
+            <span className="arch-tag">{aboutHodu.tag}</span>
+            <h2 className="arch-heading">{aboutHodu.title}</h2>
+            <p className="arch-lead">{aboutHodu.lead}</p>
+          </div>
+
+          <div className="arch-about-story">
+            {aboutHodu.story.map((paragraph, sIdx) => (
+              <p key={sIdx} className="arch-about-para">
+                {paragraph}
               </p>
-              {/* Tab Switcher */}
-              <div className="lux-tabs">
-                <button
-                  type="button"
-                  className={`lux-tab-btn ${activeVillaTab === 'all' ? 'is-active' : ''}`}
-                  onClick={() => setActiveVillaTab('all')}
-                >
-                  All Villas
-                </button>
-                {luxuryVillas.map((v) => (
-                  <button
-                    key={v.id}
-                    type="button"
-                    className={`lux-tab-btn ${activeVillaTab === v.id ? 'is-active' : ''}`}
-                    onClick={() => setActiveVillaTab(v.id)}
-                  >
-                    {v.title}
-                  </button>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
 
-          {/* Compact Villa Grid */}
-          <div className="lux-villa-grid" data-cascade>
-            {filteredVillas.map((villa) => (
-              <article key={villa.id} className="lux-villa-card">
-                <div className="lux-villa-card__media">
-                  <img
-                    src={villa.image}
-                    alt={villa.title}
-                    className="lux-villa-card__img"
-                    loading="lazy"
-                  />
-                  <div className="lux-villa-card__overlay" />
-                  <div className="lux-villa-card__badges">
-                    <span className="lux-badge-gold">Villa {villa.id}</span>
-                    <span className="lux-badge-dark">{villa.area}</span>
-                  </div>
+          <div className="arch-about-grid">
+            {aboutHodu.features.map((feat) => (
+              <div key={feat.id} className="arch-about-card">
+                <div className="arch-about-icon">
+                  <FeatureIcon id={feat.id} />
                 </div>
+                <h3 className="arch-about-card-title">{feat.title}</h3>
+                <p className="arch-about-card-desc">{feat.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-                <div className="lux-villa-card__body">
-                  <div className="lux-villa-card__top">
-                    <h3 className="lux-villa-card__title">{villa.title}</h3>
-                    <span className="lux-villa-card__type">{villa.typology}</span>
-                  </div>
+      {/* =========================================================================
+          3. WHY CHOOSE HODU (Image #2: /media/hodu-team-architecture.png)
+      ========================================================================= */}
+      <section className="arch-section arch-section--stone" id="strategies">
+        <div className="arch-container">
+          <div className="arch-section-head">
+            <span className="arch-tag">WHY CHOOSE HODU</span>
+            <h2 className="arch-heading">What Makes Our Villas Special</h2>
+            <p className="arch-lead">
+              We design every home around natural light, fresh air, custom floor plans, and solid construction.
+            </p>
+          </div>
 
-                  <p className="lux-villa-card__desc">{villa.description}</p>
+          <div className="arch-strategy-layout">
+            {/* Left: Strategic Image #2 */}
+            <div className="arch-strategy-media-box">
+              <img
+                src={media.strategy}
+                alt="HODU Architecture and Planning Team"
+                className="arch-strategy-img"
+                loading="lazy"
+              />
+              <div className="arch-strategy-media-caption">
+                <strong>Architect-Led Construction</strong>
+                <span>Work directly with our design and engineering team</span>
+              </div>
+            </div>
 
-                  <div className="lux-villa-card__specs">
-                    <div className="lux-spec-item">
-                      <span className="lux-spec-label">Suites</span>
-                      <span className="lux-spec-val">{villa.suites}</span>
-                    </div>
-                    <div className="lux-spec-item">
-                      <span className="lux-spec-label">Pool & Water</span>
-                      <span className="lux-spec-val">{villa.pool}</span>
+            {/* Right: 4 Pillar Cards in 2 Rows */}
+            <div className="arch-strategy-cards-grid">
+              {strategicPillars.map((pillar) => (
+                <div key={pillar.num} className="arch-pillar-box">
+                  <div className="arch-pillar-box__head">
+                    <span className="arch-pillar-num">{pillar.num}</span>
+                    <div>
+                      <h3 className="arch-pillar-title">{pillar.title}</h3>
+                      <span className="arch-pillar-sub">{pillar.subtitle}</span>
                     </div>
                   </div>
-
-                  <div className="lux-villa-card__footer">
-                    <a href="#enquire" className="lux-btn-gold is-sm">
-                      <span>Inquire on Villa</span>
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                    <a href="#materiality" className="lux-btn-ghost is-sm">
-                      Villa Finishes
-                    </a>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================
-          3. VILLA LIVING & SPATIAL EXPERIENCES (VIVID IMAGES)
-      ======================================================== */}
-      <section className="lux-section lux-section--surface" id="lifestyle">
-        <div className="lux-wrap">
-          <div className="lux-section-header" data-fade>
-            <div>
-              <span className="lux-tag">VILLA LIFESTYLE & SPACES</span>
-              <h2 className="lux-heading">
-                Life Inside Your Villa.
-                <br />
-                <span className="lux-gold-gradient">Designed for the Senses.</span>
-              </h2>
-            </div>
-            <p className="lux-lead">
-              Villa spaces choreographed for intimate quiet moments and family celebrations. Natural
-              light, gentle breezes, and seamless transitions into private gardens.
-            </p>
-          </div>
-
-          {/* Rich Image Cards Grid */}
-          <div className="lux-life-grid" data-cascade>
-            {lifeMoments.map((item) => (
-              <div key={item.id} className="lux-life-card">
-                <div className="lux-life-card__media">
-                  <img src={item.image} alt={item.title} className="lux-life-card__img" loading="lazy" />
-                  <div className="lux-life-card__overlay" />
-                  <span className="lux-life-card__tag">VILLA SPACE 0{item.id}</span>
-                </div>
-                <div className="lux-life-card__content">
-                  <h3>{item.title}</h3>
-                  <p>{item.subtitle}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================
-          4. WHY HODU LUXURY VILLAS (RICH VIBRANT CARDS)
-      ======================================================== */}
-      <section className="lux-section lux-section--obsidian" id="why-matrix">
-        <div className="lux-wrap">
-          <div className="lux-section-header" data-fade>
-            <div>
-              <span className="lux-tag">THE VILLA DISTINCTION</span>
-              <h2 className="lux-heading">
-                Why HODU Luxury Villas.
-                <br />
-                <span className="lux-gold-gradient">An Uncompromising Standard.</span>
-              </h2>
-            </div>
-            <p className="lux-lead">
-              We reject mass-produced repetition. Every home is a bespoke architectural villa
-              rooted in structural integrity, timeless proportions, and uncompromising craft.
-            </p>
-          </div>
-
-          <div className="lux-matrix-grid" data-cascade>
-            {whyHodu.map((item) => (
-              <div key={item.id} className="lux-matrix-card">
-                <div className="lux-matrix-card__media">
-                  <img src={item.image} alt={item.lines.join(' ')} loading="lazy" />
-                  <div className="lux-matrix-card__overlay" />
-                  <span className="lux-matrix-card__num">{item.id}</span>
-                </div>
-
-                <div className="lux-matrix-card__body">
-                  <div className="lux-matrix-card__lines">
-                    {item.lines.map((line) => (
-                      <span key={line}>{line}</span>
+                  <p className="arch-pillar-desc">{pillar.description}</p>
+                  <ul className="arch-pillar-points">
+                    {pillar.points.map((pt, pIdx) => (
+                      <li key={pIdx}>
+                        <span className="arch-dot">✦</span>
+                        <span>{pt}</span>
+                      </li>
                     ))}
-                  </div>
-                  <p className="lux-matrix-card__copy">{item.copy}</p>
-                  <div className="lux-matrix-card__pills">
-                    {item.overlay.map((w) => (
-                      <span key={w} className="lux-matrix-pill">
-                        {w}
-                      </span>
-                    ))}
-                  </div>
+                  </ul>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================
-          5. VILLA MATERIALITY & FINISHES STUDIO
-      ======================================================== */}
-      <section className="lux-section lux-section--surface" id="materiality">
-        <div className="lux-wrap">
-          <div className="lux-section-header" data-fade>
-            <div>
-              <span className="lux-tag">VILLA FINISHES & MATERIALS</span>
-              <h2 className="lux-heading">
-                Villa Materials That Age
-                <br />
-                <span className="lux-gold-gradient">With Grace & Permanence.</span>
-              </h2>
-            </div>
-            <p className="lux-lead">
-              Materials give architecture its memory. We curate honest, tactile substances that
-              respond to daylight and gain character with time.
-            </p>
-          </div>
-
-          {/* Interactive Material Studio Dock */}
-          <div className="lux-mat-studio" data-fade>
-            <div className="lux-mat-studio__nav">
-              {materialList.map((m, idx) => (
-                <button
-                  key={m.id}
-                  type="button"
-                  className={`lux-mat-tab ${activeMaterial === idx ? 'is-active' : ''}`}
-                  onClick={() => setActiveMaterial(idx)}
-                >
-                  <span className="lux-mat-tab__num">0{idx + 1}</span>
-                  <div className="lux-mat-tab__text">
-                    <strong>{m.name}</strong>
-                    <span>{m.tag}</span>
-                  </div>
-                </button>
               ))}
             </div>
-
-            {/* Active Material Showcase Display */}
-            <div className="lux-mat-studio__display">
-              <div className="lux-mat-studio__img-wrap">
-                <img
-                  src={materialList[activeMaterial].image}
-                  alt={materialList[activeMaterial].name}
-                  className="lux-mat-studio__img"
-                />
-                <div className="lux-mat-studio__img-overlay" />
-                <span className="lux-mat-studio__badge">
-                  {materialList[activeMaterial].tag}
-                </span>
-              </div>
-
-              <div className="lux-mat-studio__info">
-                <h3>{materialList[activeMaterial].name}</h3>
-                <p className="lux-mat-studio__desc">
-                  {materialList[activeMaterial].desc}
-                </p>
-
-                <div className="lux-mat-studio__specs-title">Architectural Villa Specs:</div>
-                <ul className="lux-mat-studio__specs-list">
-                  {materialList[activeMaterial].specs.map((s) => (
-                    <li key={s}>
-                      <span className="lux-gold-dot">✦</span>
-                      <span>{s}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <a href="#enquire" className="lux-btn-gold is-sm" style={{ marginTop: '1.2rem' }}>
-                  <span>Inquire on Villa Finishes</span>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* ========================================================
-          6. VILLA CONSTRUCTION & ENGINEERING PHASES
-      ======================================================== */}
-      <section className="lux-section lux-section--obsidian" id="milestones">
-        <div className="lux-wrap">
-          <div className="lux-section-header" data-fade>
-            <div>
-              <span className="lux-tag">PRECISION VILLA ENGINEERING</span>
-              <h2 className="lux-heading">
-                From Substructure
-                <br />
-                <span className="lux-gold-gradient">To Villa Handover.</span>
-              </h2>
-            </div>
-            <p className="lux-lead">
-              A transparent, multi-stage engineering audit ensures that every foundation, column,
-              waterproofing membrane, and acoustic seal meets international luxury standards.
+      {/* =========================================================================
+          3. HOW WE BUILD (Step-by-Step Construction Process)
+      ========================================================================= */}
+      <section className="arch-section arch-section--white" id="execution">
+        <div className="arch-container">
+          <div className="arch-section-head arch-section-head--center">
+            <span className="arch-tag">HOW WE BUILD</span>
+            <h2 className="arch-heading">Our Step-by-Step Construction Process</h2>
+            <p className="arch-lead">
+              A transparent, 6-step quality process from soil testing to final handover.
             </p>
           </div>
 
-          {/* Stepper Timeline Navigation */}
-          <div className="lux-stepper-bar" data-fade>
-            {buildProcess.map((step, idx) => (
+          <div className="arch-roadmap-grid">
+            {executionPhases.map((phase) => (
+              <div key={phase.phase} className="arch-roadmap-card">
+                <div className="arch-roadmap-card__num">STEP {phase.phase}</div>
+                <h3 className="arch-roadmap-card__title">{phase.title}</h3>
+                <p className="arch-roadmap-card__desc">{phase.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          4. VILLA PLANS & MODELS (Image #3: /media/hodu-quality-villa.png)
+      ========================================================================= */}
+      <section className="arch-section arch-section--stone" id="villas">
+        <div className="arch-container">
+          <div className="arch-section-head arch-section-head--center">
+            <span className="arch-tag">OUR VILLA PLANS</span>
+            <h2 className="arch-heading">Explore 4 &amp; 5 BHK Villa Options</h2>
+            <p className="arch-lead">
+              Three spacious layouts designed for family comfort, entertaining, and privacy.
+            </p>
+          </div>
+
+          {/* Model Selector Tabs */}
+          <div className="arch-villa-tabs">
+            {luxuryVillas.map((v, idx) => (
               <button
-                key={step.id}
+                key={v.id}
                 type="button"
-                className={`lux-step-node ${activeStep === idx ? 'is-active' : ''} ${
-                  idx < activeStep ? 'is-completed' : ''
-                }`}
-                onClick={() => setActiveStep(idx)}
+                className={`arch-villa-tab-btn ${activeVilla === idx ? 'is-active' : ''}`}
+                onClick={() => setActiveVilla(idx)}
               >
-                <span className="lux-step-num">{step.id}</span>
-                <span className="lux-step-title">{step.title}</span>
+                <span className="arch-villa-tab-num">OPTION 0{idx + 1}</span>
+                <strong className="arch-villa-tab-name">{v.name}</strong>
+                <span className="arch-villa-tab-meta">
+                  {v.builtUpArea} · {v.bedrooms.split(' ')[0]} BHK
+                </span>
               </button>
             ))}
           </div>
 
-          {/* Active Step Highlight Card */}
-          <div className="lux-step-card" data-fade>
-            <div className="lux-step-card__media">
-              <img
-                src={buildProcess[activeStep].image}
-                alt={buildProcess[activeStep].title}
-                className="lux-step-card__img"
-              />
-              <div className="lux-step-card__overlay" />
-            </div>
-
-            <div className="lux-step-card__body">
-              <span className="lux-tag">PHASE {buildProcess[activeStep].id} OF 06</span>
-              <h3 className="lux-step-card__heading">{buildProcess[activeStep].title} Stage</h3>
-              <p className="lux-step-card__copy">{buildProcess[activeStep].copy}</p>
-
-              <div className="lux-step-card__specs">
-                <div className="lux-spec-item">
-                  <span className="lux-spec-label">Inspection</span>
-                  <span className="lux-spec-val">3-Tier Verification</span>
-                </div>
-                <div className="lux-spec-item">
-                  <span className="lux-spec-label">Supervision</span>
-                  <span className="lux-spec-val">Resident Senior Architect</span>
-                </div>
+          {/* Active Villa Detail Showcase (Clean & Simple) */}
+          <div className="arch-villa-display">
+            <div className="arch-villa-display__grid">
+              {/* Left Column: Image #3 (Villa Elevation) */}
+              <div className="arch-villa-display__media">
+                <img
+                  src={media.villa}
+                  alt={currentVilla.name}
+                  className="arch-villa-display__img"
+                  loading="lazy"
+                />
               </div>
 
-              <div className="lux-step-card__nav">
-                <button
-                  type="button"
-                  className="lux-btn-ghost is-sm"
-                  disabled={activeStep === 0}
-                  onClick={() => setActiveStep((p) => Math.max(0, p - 1))}
-                >
-                  ← Previous Phase
-                </button>
-                <button
-                  type="button"
-                  className="lux-btn-gold is-sm"
-                  disabled={activeStep === buildProcess.length - 1}
-                  onClick={() => setActiveStep((p) => Math.min(buildProcess.length - 1, p + 1))}
-                >
-                  Next Phase →
-                </button>
+              {/* Right Column: Clean Specs & Highlights */}
+              <div className="arch-villa-display__body">
+                <div className="arch-villa-header-row">
+                  <h3 className="arch-villa-display__title">{currentVilla.name}</h3>
+                  <span className="arch-tag">{currentVilla.typology}</span>
+                </div>
+                <p className="arch-villa-display__desc">{currentVilla.description}</p>
+
+                {/* Specs Data Grid */}
+                <div className="arch-spec-matrix">
+                  <div className="arch-spec-box">
+                    <span className="arch-spec-box__label">Built-Up Area</span>
+                    <strong className="arch-spec-box__val">{currentVilla.builtUpArea}</strong>
+                  </div>
+                  <div className="arch-spec-box">
+                    <span className="arch-spec-box__label">Plot Size</span>
+                    <strong className="arch-spec-box__val">{currentVilla.plotArea}</strong>
+                  </div>
+                  <div className="arch-spec-box">
+                    <span className="arch-spec-box__label">Structure</span>
+                    <strong className="arch-spec-box__val">{currentVilla.floors}</strong>
+                  </div>
+                  <div className="arch-spec-box">
+                    <span className="arch-spec-box__label">Bedrooms</span>
+                    <strong className="arch-spec-box__val">{currentVilla.bedrooms}</strong>
+                  </div>
+                  <div className="arch-spec-box">
+                    <span className="arch-spec-box__label">Swimming Pool</span>
+                    <strong className="arch-spec-box__val">{currentVilla.pool}</strong>
+                  </div>
+                  <div className="arch-spec-box">
+                    <span className="arch-spec-box__label">Car Parking</span>
+                    <strong className="arch-spec-box__val">{currentVilla.parking}</strong>
+                  </div>
+                </div>
+
+                {/* Key Highlights */}
+                <div className="arch-highlights-block">
+                  <h4>Key Features:</h4>
+                  <ul>
+                    {currentVilla.highlights.map((h, hIdx) => (
+                      <li key={hIdx}>
+                        <span className="arch-check">✓</span>
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="arch-villa-display__actions">
+                  <a href="#enquire" className="arch-btn arch-btn--gold arch-btn--sm">
+                    Inquire About {currentVilla.name}
+                  </a>
+                  <a href="#specifications" className="arch-btn arch-btn--outline-dark arch-btn--sm">
+                    View Materials &amp; Specs
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ========================================================
-          7. PRIME VILLA ENCLAVE & CONNECTIVITY
-      ======================================================== */}
-      <section className="lux-section lux-section--surface" id="location">
-        <div className="lux-wrap">
-          <div className="lux-section-header" data-fade>
-            <div>
-              <span className="lux-tag">PRIVATE VILLA ENCLAVE</span>
-              <h2 className="lux-heading">
-                Connected to the City.
-                <br />
-                <span className="lux-gold-gradient">Protected in Privacy.</span>
+      {/* =========================================================================
+          5. COURTYARD LIVING (Image #4: /media/hodu-why-hero.png)
+      ========================================================================= */}
+      <section className="arch-section arch-section--white" id="courtyards">
+        <div className="arch-container">
+          <div className="arch-split-grid">
+            {/* Left: Content */}
+            <div className="arch-split-text">
+              <span className="arch-tag">COURTYARD LIVING</span>
+              <h2 className="arch-heading">
+                Fresh Air, Natural Light &amp; Total Privacy
               </h2>
+              <p className="arch-para">
+                Our central open-to-sky courtyards bring the outdoors inside. Large glass windows allow
+                sunlight to fill your living and dining rooms while keeping your family space completely
+                private from the outside.
+              </p>
+
+              <div className="arch-feature-list">
+                <div className="arch-feature-box">
+                  <div className="arch-feature-icon">01</div>
+                  <div>
+                    <h4>Natural Breeze &amp; Cooler Rooms</h4>
+                    <p>Internal gardens and water features help cool the home naturally during hot summer months.</p>
+                  </div>
+                </div>
+
+                <div className="arch-feature-box">
+                  <div className="arch-feature-icon">02</div>
+                  <div>
+                    <h4>Soundproof Double Glass Windows</h4>
+                    <p>High-quality double-glazed windows block outside street noise and keep heat out.</p>
+                  </div>
+                </div>
+
+                <div className="arch-feature-box">
+                  <div className="arch-feature-icon">03</div>
+                  <div>
+                    <h4>High-Ceiling Living Rooms</h4>
+                    <p>Tall 22-foot ceilings create an open, airy feeling and allow smooth airflow throughout the villa.</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <p className="lux-lead">
-              Situated in Vijayawada’s most prestigious growth corridor, balancing effortless
-              connectivity to commercial centers, premier schools, and Vijayawada Airport.
+
+            {/* Right: Image #4 */}
+            <div className="arch-split-media">
+              <img
+                src={media.courtyard}
+                alt="HODU Villa Courtyard Living"
+                className="arch-split-img"
+                loading="lazy"
+              />
+              <div className="arch-strategy-media-caption">
+                <strong>Private Courtyard Living</strong>
+                <span>Natural light, water ponds &amp; green garden view</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          6. MATERIALS & SPECIFICATIONS
+      ========================================================================= */}
+      <section className="arch-section arch-section--stone" id="specifications">
+        <div className="arch-container">
+          <div className="arch-section-head arch-section-head--center">
+            <span className="arch-tag">MATERIALS &amp; QUALITY</span>
+            <h2 className="arch-heading">Key Materials &amp; Specifications</h2>
+            <p className="arch-lead">
+              High-grade materials and fittings selected for strength, beauty, and easy maintenance.
             </p>
           </div>
 
-          <div className="lux-loc-dashboard" data-fade>
-            {/* Left: Travel Gauges & Hotspots */}
-            <div className="lux-loc-info">
-              <h3 className="lux-loc-info__title">Rapid Transit Corridors</h3>
-              <div className="lux-loc-grid">
-                {connectivity.map((item) => (
-                  <div key={item.name} className="lux-loc-item">
-                    <div className="lux-loc-item__time">{item.time}</div>
-                    <div className="lux-loc-item__name">{item.name}</div>
+          <div className="arch-specs-grid">
+            {masterSpecs.map((group, idx) => (
+              <div key={idx} className="arch-spec-card">
+                <div className="arch-spec-card__num">0{idx + 1}</div>
+                <h3 className="arch-spec-card__title">{group.category}</h3>
+                <ul className="arch-spec-card__list">
+                  {group.items.map((item, iIdx) => (
+                    <li key={iIdx}>
+                      <span className="arch-dot">✦</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          7. LOCATION & NEARBY PLACES
+      ========================================================================= */}
+      <section className="arch-section arch-section--white" id="location">
+        <div className="arch-container">
+          <div className="arch-section-head">
+            <span className="arch-tag">LOCATION</span>
+            <h2 className="arch-heading">Easy Access Across Vijayawada</h2>
+            <p className="arch-lead">
+              Enjoy peaceful living with quick travel times to Benz Circle, NH-16 highway, and the airport.
+            </p>
+          </div>
+
+          <div className="arch-location-layout">
+            {/* Left: Distance Matrix */}
+            <div className="arch-location-card">
+              <h3 className="arch-location-card__title">Travel Times from Site</h3>
+              <div className="arch-transit-table">
+                {connectivity.map((c, idx) => (
+                  <div key={idx} className="arch-transit-row">
+                    <span className="arch-transit-dest">{c.destination}</span>
+                    <strong className="arch-transit-time">{c.time}</strong>
                   </div>
                 ))}
               </div>
 
-              <h4 className="lux-loc-info__sub">Essential Proximities</h4>
-              <div className="lux-amenity-tags">
-                {locationAmenities.map((a) => (
-                  <div key={a.name} className="lux-amenity-pill">
-                    <strong>{a.name}</strong>
-                    {a.detail ? <span> · {a.detail}</span> : null}
-                  </div>
-                ))}
-              </div>
-
-              <div className="lux-loc-cta">
+              <div className="arch-address-box">
+                <strong>Project Address:</strong>
+                <p>{brand.address}</p>
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=Vijayawada%2C+Andhra+Pradesh%2C+India"
                   target="_blank"
                   rel="noreferrer"
-                  className="lux-btn-gold is-sm"
+                  className="arch-btn arch-btn--gold arch-btn--full"
+                  style={{ marginTop: '1rem' }}
                 >
-                  <span>Open Villa Enclave on Google Maps</span>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
-                  </svg>
+                  Open in Google Maps
                 </a>
               </div>
             </div>
 
-            {/* Right: Embedded Styled Map */}
-            <div className="lux-loc-map-wrap">
+            {/* Right: Embedded Google Map */}
+            <div className="arch-map-card">
               <iframe
-                title="HODU Villa Enclave Location — Vijayawada"
+                title="HODU Villa Location Map"
                 src="https://maps.google.com/maps?q=Vijayawada%2C%20Andhra%20Pradesh%2C%20India&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                className="lux-loc-iframe"
+                className="arch-map-iframe"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
               />
-              <div className="lux-map-badge">
-                <span className="lux-status-dot" />
-                <span>HODU PRIVATE VILLA ENCLAVE</span>
+              <div className="arch-map-bar">
+                <span className="arch-live-dot" />
+                <span>HODU GATED LUXURY VILLAS · VIJAYAWADA</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ========================================================
-          8. THE VILLA ARCHITECTURAL GUILD
-      ======================================================== */}
-      <section className="lux-section lux-section--obsidian" id="guild">
-        <div className="lux-wrap">
-          <div className="lux-manifesto-card" data-fade>
-            <div className="lux-manifesto-card__media">
-              <img
-                src="/media/hodu-team-architecture.png"
-                alt="HODU Villa Architects & Engineers"
-                className="lux-manifesto-card__img"
-                loading="lazy"
-              />
-              <div className="lux-manifesto-card__overlay" />
-              <div className="lux-manifesto-card__tag">THE VILLA GUILD</div>
-            </div>
-
-            <div className="lux-manifesto-card__body">
-              <span className="lux-tag">ARCHITECTURAL LEADERSHIP</span>
-              <h2 className="lux-heading">
-                Good Villa Architecture
-                <br />
-                <span className="lux-gold-gradient">Demands Human Vision.</span>
-              </h2>
-              <p className="lux-lead">
-                Our architects, structural engineers, and site artisans share a singular commitment:
-                to construct private villas of lasting dignity, proportion, and bespoke perfection.
-              </p>
-
-              <div className="lux-guild-grid">
-                {teamExpertise.map((item) => (
-                  <div key={item.id} className="lux-guild-item">
-                    <span className="lux-guild-num">{item.id}</span>
-                    <strong className="lux-guild-title">{item.title}</strong>
-                    <span className="lux-guild-copy">{item.copy}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="lux-quote-box">
-                <span className="lux-quote-mark">“</span>
-                <p>
-                  Luxury is not measured by excess. It is felt in how naturally everything belongs—a
-                  ray of light across stone, the silence between villa suites, and a home that breathes.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================
-          9. FREQUENTLY ASKED QUESTIONS (ACCORDION)
-      ======================================================== */}
-      <section className="lux-section lux-section--surface" id="faq">
-        <div className="lux-wrap">
-          <div className="lux-section-header" data-fade>
-            <div>
-              <span className="lux-tag">CLARITY & ASSURANCE</span>
-              <h2 className="lux-heading">
-                Villa Questions & Answers.
-                <br />
-                <span className="lux-gold-gradient">Everything Explained.</span>
-              </h2>
-            </div>
-            <p className="lux-lead">
-              Clear answers regarding villa specifications, bespoke customizations, legal approvals,
-              and private site visit arrangements.
+      {/* =========================================================================
+          8. FREQUENTLY ASKED QUESTIONS
+      ========================================================================= */}
+      <section className="arch-section arch-section--stone" id="faq">
+        <div className="arch-container">
+          <div className="arch-section-head arch-section-head--center">
+            <span className="arch-tag">COMMON QUESTIONS</span>
+            <h2 className="arch-heading">Frequently Asked Questions</h2>
+            <p className="arch-lead">
+              Simple answers to common questions about customization, approvals, and booking.
             </p>
           </div>
 
-          <div className="lux-faq-list" data-fade>
-            {faqs.map((faq, index) => {
-              const isOpen = openFaq === index
+          <div className="arch-faq-list">
+            {faqs.map((faq, idx) => {
+              const isOpen = openFaq === idx
               return (
-                <div
-                  key={faq.id}
-                  className={`lux-faq-item ${isOpen ? 'is-open' : ''}`}
-                  onClick={() => toggleFaq(index)}
-                >
+                <div key={idx} className={`arch-faq-item ${isOpen ? 'is-open' : ''}`}>
                   <button
                     type="button"
-                    className="lux-faq-trigger"
+                    className="arch-faq-trigger"
+                    onClick={() => toggleFaq(idx)}
                     aria-expanded={isOpen}
                   >
-                    <span className="lux-faq-num">{faq.id}</span>
-                    <span className="lux-faq-q">{faq.question}</span>
-                    <span className="lux-faq-icon">{isOpen ? '−' : '+'}</span>
+                    <span className="arch-faq-num">0{idx + 1}</span>
+                    <span className="arch-faq-q">{faq.q}</span>
+                    <span className="arch-faq-icon">{isOpen ? '−' : '+'}</span>
                   </button>
                   {isOpen && (
-                    <div className="lux-faq-ans">
-                      <p>{faq.answer}</p>
+                    <div className="arch-faq-body">
+                      <p>{faq.a}</p>
                     </div>
                   )}
                 </div>
@@ -684,12 +508,12 @@ export default function Home({ ready = true }) {
         </div>
       </section>
 
-      {/* ========================================================
-          10. BOOK PRIVATE VILLA VISIT (ENQUIRY)
-      ======================================================== */}
-      <section className="lux-section lux-section--obsidian" id="enquire">
-        <div className="lux-wrap">
-          <EnquireForm />
+      {/* =========================================================================
+          9. BOOK A PRIVATE SITE VISIT
+      ========================================================================= */}
+      <section className="arch-section arch-section--white" id="enquire">
+        <div className="arch-container">
+          <EnquireForm preselectedVilla={currentVilla.name} />
         </div>
       </section>
     </main>
