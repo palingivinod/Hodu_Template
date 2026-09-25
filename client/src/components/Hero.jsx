@@ -22,15 +22,6 @@ export default function Hero({ onOpenEnquire }) {
           <span className="hodu-hero__eyebrow">{heroData.eyebrow}</span>
           <h1 className="hodu-hero__title">{heroData.title}</h1>
           <p className="hodu-hero__subtitle">{heroData.subtitle}</p>
-
-          <div className="hodu-hero__actions">
-            <button onClick={onOpenEnquire} className="hodu-btn hodu-btn--light">
-              {heroData.ctaPrimary}
-            </button>
-            <a href="#about" className="hodu-btn hodu-btn--outline-light">
-              {heroData.ctaSecondary}
-            </a>
-          </div>
         </div>
       </div>
 
