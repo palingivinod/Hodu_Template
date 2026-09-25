@@ -56,34 +56,35 @@ export const introData = {
 }
 
 export const naturePillarsData = {
-  eyebrow: 'BIOPHILIC LIVING & MICROCLIMATE',
+  eyebrow: 'BIOPHILIC VILLA DESIGN',
   heading: 'DESIGNED IN HARMONY WITH NATURE.',
   subheading:
     'We don’t treat landscape as decoration added at the end. Nature shapes the floor plan, ventilation, daylight, and daily rhythm of every HODU villa.',
+  bgImage: '/media/hodu-philosophy-landscape.png',
   pillars: [
     {
       num: '01',
       title: 'Courtyard Microclimate',
       desc: 'Central sky-open courtyards act as natural air scoops, bringing continuous cross-breeze and soft morning daylight into living spaces while keeping homes naturally cool.',
-      icon: '🌿',
+      image: '/media/hodu-quality-villa.png',
     },
     {
       num: '02',
       title: 'Tree-Preserving Architecture',
-      desc: 'Villa layouts are contoured around existing mature trees and natural topography, creating private garden viewports from master suites and family lounges.',
-      icon: '🌳',
+      desc: 'Villa layouts are contoured around existing mature trees and natural topography, creating private garden viewpoints from master suites and family lounges.',
+      image: '/media/hodu-why-hero.png',
     },
     {
       num: '03',
       title: 'Earth & Stone Tactility',
       desc: 'Hand-cut local granite, unpolished sandstone walls, and natural teak wood louvers ground the home and weather beautifully with sunlight and rain.',
-      icon: '🪨',
+      image: '/media/hodu-philosophy-material.png',
     },
     {
       num: '04',
       title: 'Shaded Verandas & Water Play',
       desc: 'Deep cantilevered roof overhangs shield living areas from harsh afternoon heat, while reflection ponds create gentle evaporative cooling across open verandas.',
-      icon: '💧',
+      image: '/media/hodu-philosophy-space.png',
     },
   ],
 }

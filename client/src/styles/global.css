@@ -687,87 +687,224 @@ body {
 }
 
 /* ==========================================================================
-   BIOPHILIC NATURE PILLARS & ACCENTS
+   BIOPHILIC VILLA DESIGN SECTION (Pixel-Close Recreation)
    ========================================================================== */
-.hodu-nature-tag {
+.hodu-biophilic-section {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 0;
+  background-color: #F1F3EC;
+  color: #18231E;
+}
+
+.hodu-biophilic__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hodu-biophilic__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  opacity: 0.28;
+  filter: blur(5px) contrast(1.05) saturate(1.1);
+}
+
+.hodu-biophilic__bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(242, 244, 237, 0.96) 0%,
+    rgba(242, 244, 237, 0.85) 45%,
+    rgba(242, 244, 237, 0.65) 75%,
+    rgba(242, 244, 237, 0.35) 100%
+  ),
+  linear-gradient(
+    180deg,
+    rgba(242, 244, 237, 0.95) 0%,
+    transparent 20%,
+    transparent 80%,
+    rgba(242, 244, 237, 0.95) 100%
+  );
+  z-index: 2;
+}
+
+.hodu-biophilic__container {
+  position: relative;
+  z-index: 3;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5vw;
+}
+
+.hodu-biophilic__head {
+  margin-bottom: 70px;
+  max-width: 900px;
+}
+
+.hodu-biophilic-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background-color: rgba(36, 56, 42, 0.08);
-  color: var(--hodu-forest-canopy);
-  border: 1px solid rgba(36, 56, 42, 0.18);
-  padding: 0.35rem 0.85rem;
-  border-radius: 20px;
+  gap: 8px;
+  background-color: rgba(225, 232, 221, 0.75);
+  border: 1px solid rgba(90, 105, 88, 0.25);
+  border-radius: 999px;
+  padding: 10px 18px;
   font-family: var(--font-sans);
-  font-size: 0.725rem;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  color: #24352B;
+  margin-bottom: 25px;
+  backdrop-filter: blur(4px);
 }
 
-.hodu-nature-tag__icon {
-  font-size: 0.9rem;
+.hodu-biophilic-pill__icon {
+  font-size: 14px;
 }
 
-.hodu-nature-pillars {
-  background: linear-gradient(180deg, #E6ECE3 0%, #EEF2EC 100%);
-  border-top: 1px solid var(--hodu-border-light);
-  border-bottom: 1px solid var(--hodu-border-light);
+.hodu-biophilic__heading {
+  font-family: var(--font-serif);
+  font-size: clamp(42px, 4.5vw, 68px);
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.015em;
+  color: #18231E;
+  margin-bottom: 25px;
+  max-width: 900px;
 }
 
-.hodu-nature-pillars__head {
-  margin-bottom: 4rem;
+.hodu-biophilic__desc {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.6;
+  color: #263A42;
+  max-width: 850px;
 }
 
-.hodu-nature-pillars__grid {
+.hodu-biophilic__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 22px;
 }
 
-.hodu-nature-pillar-card {
-  background-color: #FAF9F5;
-  padding: 2.25rem 1.75rem;
-  border: 1px solid rgba(36, 56, 42, 0.15);
-  border-radius: var(--hodu-radius-sm);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+.hodu-biophilic-card {
+  background-color: rgba(250, 249, 244, 0.92);
+  border: 1px solid rgba(80, 80, 70, 0.16);
+  border-radius: 2px;
+  box-shadow: 0 8px 30px rgba(40, 50, 40, 0.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 500ms ease, box-shadow 500ms ease, border-color 300ms ease;
 }
 
-.hodu-nature-pillar-card:hover {
+.hodu-biophilic-card:hover {
   transform: translateY(-4px);
-  border-color: var(--hodu-forest-canopy);
+  box-shadow: 0 16px 40px rgba(40, 50, 40, 0.08);
+  border-color: rgba(80, 80, 70, 0.3);
 }
 
-.hodu-nature-pillar-card__top {
+.hodu-biophilic-card__media {
+  position: relative;
+  height: 180px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hodu-biophilic-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.hodu-biophilic-card:hover .hodu-biophilic-card__img {
+  transform: scale(1.03);
+}
+
+.hodu-biophilic-card__num {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 500;
+  color: #927553;
+  background-color: rgba(250, 249, 244, 0.92);
+  padding: 2px 8px;
+  border-radius: 2px;
+  border: 1px solid rgba(146, 117, 83, 0.2);
+}
+
+.hodu-biophilic-card__body {
+  padding: 28px 24px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.hodu-biophilic-card__title {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 1.6vw, 25px);
+  font-weight: 400;
+  color: #17231E;
+  line-height: 1.25;
+  margin-bottom: 0;
+}
+
+.hodu-biophilic-card__divider {
+  width: 28px;
+  height: 1px;
+  background-color: #927553;
+  opacity: 0.6;
+  margin: 14px 0;
+}
+
+.hodu-biophilic-card__desc {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: #455158;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.hodu-biophilic-card__footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+
+.hodu-biophilic-card__arrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #899383;
+  background: transparent;
+  color: #65705F;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 300ms ease;
 }
 
-.hodu-nature-pillar-card__icon {
-  font-size: 1.75rem;
-}
-
-.hodu-nature-pillar-card__num {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--hodu-earth);
-}
-
-.hodu-nature-pillar-card__title {
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: var(--hodu-charcoal);
-  margin-bottom: 0.75rem;
-}
-
-.hodu-nature-pillar-card__desc {
-  font-size: 0.9rem;
-  line-height: 1.65;
-  color: var(--hodu-text-body);
+.hodu-biophilic-card:hover .hodu-biophilic-card__arrow {
+  background-color: #65705F;
+  color: #FAF9F4;
+  border-color: #65705F;
+  transform: translateX(3px);
 }
 
 /* ==========================================================================

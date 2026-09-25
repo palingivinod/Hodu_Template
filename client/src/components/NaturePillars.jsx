@@ -2,31 +2,64 @@ import { naturePillarsData } from '../data/content'
 
 export default function NaturePillars() {
   return (
-    <section className="hodu-section hodu-nature-pillars" id="biophilic">
-      <div className="hodu-container">
-        <div className="hodu-nature-pillars__head">
-          <div className="hodu-nature-tag">
-            <span className="hodu-nature-tag__icon">🌿</span>
-            <span>BIOPHILIC VILLA DESIGN</span>
+    <section className="hodu-section hodu-biophilic-section" id="biophilic">
+      {/* Background Soft Photographic Landscape Layer */}
+      <div className="hodu-biophilic__bg">
+        <img
+          src={naturePillarsData.bgImage}
+          alt="HODU Biophilic Villa Landscape"
+          className="hodu-biophilic__bg-img"
+          loading="lazy"
+        />
+        <div className="hodu-biophilic__bg-overlay" />
+      </div>
+
+      <div className="hodu-container hodu-biophilic__container">
+        {/* Top Header Area */}
+        <div className="hodu-biophilic__head">
+          <div className="hodu-biophilic-pill">
+            <span className="hodu-biophilic-pill__icon">🌿</span>
+            <span>{naturePillarsData.eyebrow}</span>
           </div>
-          <h2 className="hodu-title hodu-title--lg" style={{ marginTop: '0.75rem' }}>
+
+          <h2 className="hodu-biophilic__heading">
             {naturePillarsData.heading}
           </h2>
-          <p className="hodu-body-lead" style={{ marginTop: '1rem' }}>
+
+          <p className="hodu-biophilic__desc">
             {naturePillarsData.subheading}
           </p>
         </div>
 
-        <div className="hodu-nature-pillars__grid">
-          {naturePillarsData.pillars.map((item) => (
-            <div key={item.num} className="hodu-nature-pillar-card">
-              <div className="hodu-nature-pillar-card__top">
-                <span className="hodu-nature-pillar-card__icon">{item.icon}</span>
-                <span className="hodu-nature-pillar-card__num">{item.num}</span>
+        {/* 4 Feature Cards Grid */}
+        <div className="hodu-biophilic__grid">
+          {naturePillarsData.pillars.map((card) => (
+            <article key={card.num} className="hodu-biophilic-card">
+              <div className="hodu-biophilic-card__media">
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  className="hodu-biophilic-card__img"
+                  loading="lazy"
+                />
+                <span className="hodu-biophilic-card__num">{card.num}</span>
               </div>
-              <h3 className="hodu-nature-pillar-card__title">{item.title}</h3>
-              <p className="hodu-nature-pillar-card__desc">{item.desc}</p>
-            </div>
+
+              <div className="hodu-biophilic-card__body">
+                <h3 className="hodu-biophilic-card__title">{card.title}</h3>
+                <div className="hodu-biophilic-card__divider" />
+                <p className="hodu-biophilic-card__desc">{card.desc}</p>
+
+                <div className="hodu-biophilic-card__footer">
+                  <button
+                    className="hodu-biophilic-card__arrow"
+                    aria-label={`Explore ${card.title}`}
+                  >
+                    →
+                  </button>
+                </div>
+              </div>
+            </article>
           ))}
         </div>
       </div>
