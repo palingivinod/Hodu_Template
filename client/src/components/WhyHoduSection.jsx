@@ -2,7 +2,7 @@ import { whyHoduData } from '../data/content'
 
 export default function WhyHoduSection() {
   return (
-    <section className="hodu-section hodu-why">
+    <section className="hodu-section hodu-why" id="integrated">
       <div className="hodu-container">
         <div className="hodu-why__header">
           <span className="hodu-eyebrow">{whyHoduData.eyebrow}</span>

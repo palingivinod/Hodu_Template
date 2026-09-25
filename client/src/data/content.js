@@ -1,15 +1,16 @@
 /**
- * HODU — Premium Nature-Led Villa Construction Website Data
- * Editorial, architectural content reflecting: Nature + Architecture + Craft + Privacy + Premium Living
+ * HODU — Villa Design & Construction Content Strategy
+ * 70% Villa Design + Construction / 30% Nature Visual Theme
+ * Focused on: Architecture, Construction, Design, Engineering, Craftsmanship, Materials, Process, Quality, Projects, Trust, Handover.
  */
 
 export const brand = {
   name: 'HODU',
   fullName: 'HODU Villa Design & Construction',
-  tagline: 'Villas, Rooted in Nature.',
-  ogTitle: 'HODU | Premium Nature-Led Villa Construction',
+  tagline: 'Villas, Built Around the Way You Live.',
+  ogTitle: 'HODU | Villa Design & Construction',
   description:
-    'HODU designs and builds premium private villas, bringing architecture, construction, interiors and natural landscape together through one complete process.',
+    'HODU brings architecture, engineering, construction and interiors together to design and build custom private villas from first drawing to final handover.',
   phone: '+91 99999 99999',
   email: 'enquiries@hodu.in',
   location: 'Vijayawada, Andhra Pradesh',
@@ -19,38 +20,107 @@ export const brand = {
 
 export const heroData = {
   eyebrow: 'LUXURY VILLA DESIGN & CONSTRUCTION',
-  title: 'VILLAS, ROOTED IN NATURE.',
+  title: 'VILLAS, BUILT AROUND THE WAY YOU LIVE.',
   subtitle:
-    'Thoughtfully designed and built homes where architecture, landscape and everyday life exist together.',
+    'From architectural planning to construction and interiors, HODU brings every stage of your villa project together through one considered process.',
   ctaPrimary: 'START YOUR PROJECT',
   ctaSecondary: 'OUR APPROACH',
   videoSrc: '/videos/hero_banner.mp4',
   fallbackImg: '/media/hero.png',
-  badge: 'NATURE-INTEGRATED ARCHITECTURE',
 }
 
-export const introData = {
-  eyebrow: 'THE HODU APPROACH',
-  headingLine1: "WE DON'T SIMPLY BUILD VILLAS.",
-  headingLine2: 'WE BUILD PLACES TO LIVE NATURALLY.',
+export const expertiseData = {
+  eyebrow: 'BUILT WITH EXPERIENCE',
+  headingLine1: 'FROM FIRST DRAWING',
+  headingLine2: 'TO FINAL DETAIL.',
   body:
-    'Every HODU home begins with an understanding of the land, natural breeze, sunlight patterns and the people who will live there. From architecture and engineering to construction, interiors and native landscape, we bring the entire process together under one roof.',
-  bgImage: '/media/hodu-philosophy-landscape.png',
+    'A villa is more than an architectural design. It requires coordinated decisions across structure, materials, interiors, services and site execution. HODU brings these disciplines together to create a complete home with one accountable team.',
+  mainIllustration: '/media/hodu-expertise-villa.jpg',
+  bgTexture: '/media/hodu-philosophy-landscape.png',
+  ctaText: 'VIEW OUR APPROACH',
+  ctaHref: '#process',
+  cards: [
+    {
+      num: '01',
+      title: 'DESIGN & ENGINEERING',
+      desc:
+        'Architecture and engineering are developed together from the beginning, allowing structure, services, spatial planning and construction requirements to work as one coordinated design.',
+      tags: [
+        'ARCHITECTURAL PLANNING',
+        'STRUCTURAL COORDINATION',
+        'MEP INTEGRATION',
+        'DETAILED DRAWINGS',
+      ],
+      image: '/media/hodu-expertise-design.jpg',
+    },
+    {
+      num: '02',
+      title: 'BUILD QUALITY & CRAFT',
+      desc:
+        'From structure and masonry to joinery and final finishes, every stage is managed with careful supervision and attention to construction quality.',
+      tags: [
+        'SITE SUPERVISION',
+        'MATERIAL SELECTION',
+        'SKILLED CRAFTSMANSHIP',
+        'FINAL QUALITY CHECKS',
+      ],
+      image: '/media/hodu-expertise-craft.jpg',
+    },
+  ],
+}
+
+export const aboutData = {
+  eyebrow: 'THE HODU APPROACH',
+  headingLine1: 'DESIGN WITH PURPOSE.',
+  headingLine2: 'BUILD WITH PRECISION.',
+  body:
+    'Every villa begins with a clear understanding of how it should look, function and feel. HODU brings architecture, engineering, construction and interiors together to create a complete home from the first drawing to final handover.',
+  bgImage: '/media/hodu-why-hero.png',
   blocks: [
     {
       num: '01',
       title: 'ARCHITECTURE',
-      desc: 'Designed around natural light, courtyard proportions and effortless indoor-outdoor flow.',
+      desc: 'Thoughtful planning, balanced proportions and spaces designed around everyday living.',
     },
     {
       num: '02',
-      title: 'LANDSCAPE',
-      desc: 'Native trees, garden pathways and outdoor spaces planned alongside the villa structure.',
+      title: 'ENGINEERING',
+      desc: 'Structural planning and technical coordination integrated from the beginning.',
     },
     {
       num: '03',
-      title: 'CRAFT',
-      desc: 'Natural stone, teak wood and carefully considered construction details designed to age gracefully.',
+      title: 'CONSTRUCTION',
+      desc: 'Experienced execution, careful supervision and attention to every stage of the build.',
+    },
+  ],
+}
+
+export const philosophyData = {
+  eyebrow: 'DESIGN PHILOSOPHY',
+  heading: 'EVERY VILLA STARTS WITH A BETTER PLAN.',
+  subheading:
+    'Good architecture begins with understanding how a family moves, gathers, rests and lives. We shape layouts around comfort, privacy, proportion and the character of each site.',
+  bgImage: '/media/hodu-philosophy-space.png',
+  features: [
+    {
+      num: '01',
+      title: 'SPATIAL PLANNING',
+      desc: 'Layouts designed around movement, privacy and everyday routines.',
+    },
+    {
+      num: '02',
+      title: 'LIGHT & VENTILATION',
+      desc: 'Openings and orientations considered for comfortable interiors.',
+    },
+    {
+      num: '03',
+      title: 'INDOOR / OUTDOOR LIVING',
+      desc: 'Verandas, terraces and transitional spaces extending the living experience.',
+    },
+    {
+      num: '04',
+      title: 'FUNCTIONAL DETAIL',
+      desc: 'Every room, connection and finish considered before construction begins.',
     },
   ],
 }
@@ -59,214 +129,239 @@ export const naturePillarsData = {
   eyebrow: 'BIOPHILIC VILLA DESIGN',
   heading: 'DESIGNED IN HARMONY WITH NATURE.',
   subheading:
-    'We don’t treat landscape as decoration added at the end. Nature shapes the floor plan, ventilation, daylight, and daily rhythm of every HODU villa.',
+    'Landscape is considered as part of the architectural experience rather than an element added after construction.',
   bgImage: '/media/hodu-philosophy-landscape.png',
   pillars: [
     {
       num: '01',
-      title: 'Courtyard Microclimate',
-      desc: 'Central sky-open courtyards act as natural air scoops, bringing continuous cross-breeze and soft morning daylight into living spaces while keeping homes naturally cool.',
+      title: 'Courtyards',
+      desc: 'Open spaces that bring light, air and visual depth into the home.',
       image: '/media/hodu-quality-villa.png',
     },
     {
       num: '02',
-      title: 'Tree-Preserving Architecture',
-      desc: 'Villa layouts are contoured around existing mature trees and natural topography, creating private garden viewpoints from master suites and family lounges.',
+      title: 'Landscape',
+      desc: 'Gardens and planting planned alongside the architectural layout.',
       image: '/media/hodu-why-hero.png',
     },
     {
       num: '03',
-      title: 'Earth & Stone Tactility',
-      desc: 'Hand-cut local granite, unpolished sandstone walls, and natural teak wood louvers ground the home and weather beautifully with sunlight and rain.',
+      title: 'Materials',
+      desc: 'Stone, timber and other tactile materials bringing warmth into the architecture.',
       image: '/media/hodu-philosophy-material.png',
     },
     {
       num: '04',
-      title: 'Shaded Verandas & Water Play',
-      desc: 'Deep cantilevered roof overhangs shield living areas from harsh afternoon heat, while reflection ponds create gentle evaporative cooling across open verandas.',
+      title: 'Outdoor Living',
+      desc: 'Verandas, terraces and garden spaces extending everyday living.',
       image: '/media/hodu-philosophy-space.png',
     },
   ],
 }
 
-export const archNatureData = {
-  eyebrow: 'DESIGNED AROUND THE LAND',
-  heading: 'A HOME THAT BELONGS TO ITS SETTING.',
-  copy:
-    'From private courtyards and shaded verandas to garden-facing rooms and raw natural stone, every architectural decision creates a deeper connection between your villa and the surrounding environment.',
-  features: [
-    'Abundant natural daylight',
-    'Private sky courtyards',
-    'Seamless garden connections',
-    'Shaded indoor / outdoor verandas',
-    'Native flora & mature trees',
-    'Natural stone & timber finishes',
-  ],
-  image: '/media/hodu-quality-villa.png',
-}
-
 export const processData = {
-  eyebrow: 'HOW WE BUILD',
-  heading: 'FROM FIRST IDEA TO FINAL HANDOVER.',
+  eyebrow: 'OUR PROCESS',
+  heading: 'FROM FIRST DRAWING TO FINAL HANDOVER.',
   steps: [
     {
       step: '01',
-      title: 'UNDERSTAND',
-      desc: 'Site topography, orientation, tree canopy, lifestyle requirements and vision.',
+      title: 'DISCOVER',
+      desc: 'Understanding your site, requirements, lifestyle and project goals.',
     },
     {
       step: '02',
-      title: 'DESIGN',
-      desc: 'Architectural floor plans, courtyard layout, landscape integration and material selection.',
+      title: 'PLAN',
+      desc: 'Developing architectural layouts, specifications, budgets and timelines.',
     },
     {
       step: '03',
-      title: 'BUILD',
-      desc: 'Structural engineering, monolithic RCC framing, natural stone masonry and site supervision.',
+      title: 'DESIGN',
+      desc: 'Refining architecture, interiors, materials and construction details.',
     },
     {
       step: '04',
-      title: 'FINISH',
-      desc: 'Bespoke interior woodwork, landscape planting, stone polishing and custom detailing.',
+      title: 'BUILD',
+      desc: 'Managing structure, services, finishes and site execution.',
     },
     {
       step: '05',
       title: 'HANDOVER',
-      desc: 'A complete, serene nature-rooted villa ready to live in.',
+      desc: 'Completing the final details and delivering a finished home.',
     },
   ],
 }
 
 export const materialsData = {
-  eyebrow: 'NATURAL MATERIALS & CRAFT',
-  heading: 'MATERIALS THAT AGE WITH THE HOME.',
-  subtitle: 'Tactile, durable natural elements selected to weather beautifully and anchor the architecture.',
-  items: [
+  eyebrow: 'HOW WE BUILD',
+  heading: 'FROM FIRST IDEA TO FINAL HANDOVER.',
+  introduction:
+    'HODU brings architecture, construction, materials and craftsmanship together to create thoughtfully planned villas that are built for everyday living.',
+  cards: [
     {
-      title: 'STONE',
-      desc: 'Grounded, tactile and timeless local granite and sandstone.',
-      image: '/media/hodu-philosophy-material.png',
+      id: 'design-arch',
+      title: 'DESIGN & ARCHITECTURE',
+      subheading: 'Thoughtful Design From The Ground Up',
+      desc:
+        'Every HODU villa begins with a clear architectural vision, planned around the site, natural light, movement and the way your family lives.',
+      linkText: 'Learn More',
+      iconKey: 'blueprint',
     },
     {
-      title: 'WOOD',
-      desc: 'Natural warmth and texture from responsibly sourced teak.',
-      image: '/media/hodu-quality-material.png',
+      id: 'construction',
+      title: 'CONSTRUCTION',
+      subheading: 'Experienced Teams On Site',
+      desc:
+        'Our technical and construction teams coordinate every stage of execution, maintaining quality, accuracy and consistency from foundation to finishing.',
+      linkText: 'Learn More',
+      iconKey: 'engineer',
     },
     {
-      title: 'CONCRETE',
-      desc: 'Structural strength, architectural simplicity and thermal mass.',
-      image: '/media/hodu-why-detail.png',
+      id: 'villa-types',
+      title: 'VILLA PLANNING',
+      subheading: 'Villas Planned Around Your Needs',
+      desc:
+        'From contemporary family villas to spacious custom homes, HODU develops layouts that balance privacy, comfort, functionality and architectural character.',
+      linkText: 'Learn More',
+      iconKey: 'villas',
     },
     {
-      title: 'LANDSCAPE',
-      desc: 'A living layer of native foliage, trees and garden paths.',
-      image: '/media/hodu-philosophy-landscape.png',
+      id: 'materials-finishes',
+      title: 'MATERIALS & FINISHES',
+      subheading: 'Materials Chosen With Purpose',
+      desc:
+        'We carefully coordinate stone, wood, concrete, flooring, fixtures and finishes to create a cohesive home with lasting quality and character.',
+      linkText: 'Learn More',
+      iconKey: 'materials',
     },
   ],
 }
 
 export const projectsData = {
-  eyebrow: 'SELECTED RESIDENCES',
-  heading: 'HOMES DESIGNED AROUND THEIR SETTING.',
-  subheading: 'Each villa begins with its site, its people and the way they want to live.',
+  eyebrow: 'OUR VILLAS',
+  heading: 'HOMES DESIGNED FOR REAL LIFE.',
+  subheading:
+    'Every project is developed around its site, requirements, architecture and the people who will call it home.',
   list: [
     {
       id: 'villa-01',
       tag: 'VILLA 01',
-      title: 'The Courtyard Residence',
-      subtitle: 'Contemporary Private Courtyard Villa',
+      title: 'THE COURTYARD HOUSE',
+      subtitle: 'Contemporary Private Villa',
       location: 'Vijayawada, Andhra Pradesh',
       area: '4,800 sq.ft.',
-      scope: 'Architecture · Construction · Interiors · Landscape',
-      natureFeature: 'Central Sky Courtyard · Water Reflecting Pond · Teak Louvers',
+      scope: 'Architecture · Construction · Interiors',
       image: '/media/hodu-why-hero.png',
     },
     {
       id: 'villa-02',
       tag: 'VILLA 02',
-      title: 'The Pavilion & Stone Villa',
-      subtitle: 'Earthy Modern Multigenerational Home',
+      title: 'THE MODERN FAMILY HOME',
+      subtitle: 'Contemporary Family Villa',
       location: 'Vijayawada, Andhra Pradesh',
       area: '5,400 sq.ft.',
-      scope: 'Architecture · Structural Build · Custom Finishes',
-      natureFeature: 'Raw Stone Masonry · Shaded Verandas · Mature Tree Court',
+      scope: 'Architecture · Construction · Interiors',
       image: '/media/hodu-why-living.png',
     },
     {
       id: 'villa-03',
       tag: 'VILLA 03',
-      title: 'The Veranda Estate',
-      subtitle: 'Garden Sanctuary Villa',
+      title: 'THE GARDEN HOUSE',
+      subtitle: 'Contemporary Private Residence',
       location: 'Vijayawada, Andhra Pradesh',
       area: '6,200 sq.ft.',
-      scope: 'Turnkey Design, Build & Landscape',
-      natureFeature: '360° Garden Aspect · Floor-to-Ceiling Glass · Native Greenery',
+      scope: 'Design · Build · Interiors',
       image: '/media/hodu-philosophy-space.png',
     },
   ],
 }
 
 export const whyHoduData = {
-  eyebrow: 'INTEGRATED BUILD MODEL',
+  eyebrow: 'ONE COMPLETE PROCESS',
   headingLine1: 'ONE TEAM.',
   headingLine2: 'ONE ACCOUNTABLE PROCESS.',
   statement:
-    'From the first conversation to the final handover, HODU keeps the entire villa journey connected.',
+    'With architecture, engineering and construction coordinated under one team, decisions remain connected from concept through completion.',
   points: [
     {
       num: '01',
       title: 'ARCHITECTURE',
-      desc: 'A considered design centered on sunlight, breeze and natural site flow.',
+      desc: 'A clear architectural vision from the beginning.',
     },
     {
       num: '02',
       title: 'ENGINEERING',
-      desc: 'Structure and thermal planning integrated into the architectural frame.',
+      desc: 'Technical planning coordinated with the design.',
     },
     {
       num: '03',
       title: 'CONSTRUCTION',
-      desc: 'Professional site execution, stone craftsmanship and supervisory rigor.',
+      desc: 'Professional execution and site supervision.',
     },
     {
       num: '04',
       title: 'INTERIORS',
-      desc: 'Natural materials, wood finishes and custom details aligned with the architecture.',
+      desc: 'Materials, finishes and custom details aligned with the architecture.',
     },
     {
       num: '05',
-      title: 'LANDSCAPE',
-      desc: 'Outdoor gardens, courtyards and water features designed as part of the home.',
+      title: 'HANDOVER',
+      desc: 'A completed villa ready for everyday life.',
     },
   ],
 }
 
-export const natureFeatureData = {
-  heading: 'LET THE LAND BECOME PART OF THE HOME.',
+export const qualityTrustData = {
+  eyebrow: 'BUILT WITH CARE',
+  heading: 'QUALITY IS IN THE DETAILS.',
+  subheading:
+    'Rigor, structural precision and site supervision built into every phase of construction.',
+  points: [
+    {
+      title: 'STRUCTURAL QUALITY',
+      desc: 'Careful planning and execution at every stage of the build.',
+    },
+    {
+      title: 'MATERIAL SELECTION',
+      desc: 'Specifications chosen for high performance, durability and longevity.',
+    },
+    {
+      title: 'SITE SUPERVISION',
+      desc: 'Consistent architectural and engineering oversight throughout construction.',
+    },
+    {
+      title: 'DETAILING',
+      desc: 'Attention to the refined elements and joinery that define the finished home.',
+    },
+  ],
+}
+
+export const natureMomentData = {
+  heading: 'A HOME THAT FEELS AT EASE.',
   copy:
-    'Landscape is not decoration added at the end. It shapes how a villa feels, how light enters, how rooms connect and how everyday life unfolds.',
+    'Thoughtful architecture creates spaces that are comfortable, private and connected to their surroundings.',
   image: '/media/hodu-philosophy-landscape.png',
 }
 
 export const ctaData = {
-  headingLine1: 'YOUR LAND HAS A STORY.',
-  headingLine2: "LET'S BUILD THE HOME AROUND IT.",
-  copy: 'Tell us about your site, your vision and the home you want to create.',
+  headingLine1: "LET'S BUILD",
+  headingLine2: 'YOUR VILLA.',
+  copy: 'Tell us about your project, your requirements and the home you have in mind.',
   primaryBtn: 'START YOUR PROJECT',
   secondaryBtn: 'CONTACT HODU',
 }
 
 export const footerData = {
   brandName: 'HODU',
-  description: 'Premium nature-led villa design and construction, from architecture to handover.',
+  description: 'Premium villa design and construction, from architecture to handover.',
   navLinks: [
     { name: 'Home', href: '#top' },
-    { name: 'About', href: '#about' },
-    { name: 'Nature Integration', href: '#biophilic' },
-    { name: 'How We Build', href: '#process' },
-    { name: 'Villas', href: '#villas' },
-    { name: 'Craft', href: '#craft' },
     { name: 'Contact', href: '#contact' },
+  ],
+  socialLinks: [
+    { name: 'Instagram', href: 'https://instagram.com', key: 'instagram' },
+    { name: 'LinkedIn', href: 'https://linkedin.com', key: 'linkedin' },
+    { name: 'Facebook', href: 'https://facebook.com', key: 'facebook' },
+    { name: 'WhatsApp', href: 'https://wa.me/919999999999', key: 'whatsapp' },
   ],
   contact: {
     phone: '+91 99999 99999',

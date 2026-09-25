@@ -2,14 +2,13 @@ import { useState } from 'react'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import IntroSection from '../components/IntroSection'
-import ArchitectureSection from '../components/ArchitectureSection'
-import NaturePillars from '../components/NaturePillars'
+import ExpertiseSection from '../components/ExpertiseSection'
+import DesignPhilosophy from '../components/DesignPhilosophy'
 import ProcessSection from '../components/ProcessSection'
 import MaterialsSection from '../components/MaterialsSection'
 import ProjectsSection from '../components/ProjectsSection'
-import WhyHoduSection from '../components/WhyHoduSection'
-import NatureFeatureSection from '../components/NatureFeatureSection'
-import CTASection from '../components/CTASection'
+import QualityTrustSection from '../components/QualityTrustSection'
+import NatureMomentSection from '../components/NatureMomentSection'
 import Footer from '../components/Footer'
 import EnquireModal from '../components/EnquireModal'
 
@@ -27,46 +26,43 @@ export default function Home() {
 
   return (
     <div className="hodu-page">
-      {/* 06. Header */}
+      {/* Header Navigation */}
       <Header onOpenEnquire={handleOpenEnquire} />
 
       <main>
-        {/* 07. Hero Section */}
+        {/* HERO SECTION */}
         <Hero onOpenEnquire={handleOpenEnquire} />
 
-        {/* 08. Introduction Section */}
-        <IntroSection />
+        {/* SECTION 01 — BUILT WITH EXPERIENCE / EXPERTISE */}
+        <ExpertiseSection />
 
-        {/* 09. Architecture + Nature Section */}
-        <ArchitectureSection />
+        {/* SECTION 02 — DESIGN PHILOSOPHY */}
+        <DesignPhilosophy />
 
-        {/* Biophilic Nature Pillars */}
-        <NaturePillars />
-
-        {/* 10. How We Build Section */}
-        <ProcessSection />
-
-        {/* 11. Materials & Craft Section */}
+        {/* SECTION 03 — HOW WE BUILD */}
         <MaterialsSection />
 
-        {/* 12. Villas / Projects Section */}
+        {/* SECTION 04 — THE HODU APPROACH */}
+        <IntroSection />
+
+        {/* SECTION 05 — OUR PROCESS */}
+        <ProcessSection />
+
+        {/* SECTION 06 — VILLAS */}
         <ProjectsSection onSelectProject={handleSelectProject} />
 
-        {/* 13. Why HODU Section */}
-        <WhyHoduSection />
+        {/* SECTION 08 — QUALITY / TRUST */}
+        <QualityTrustSection />
 
-        {/* 14. Nature Feature Section */}
-        <NatureFeatureSection />
-
-        {/* 15. Final CTA Section */}
-        <CTASection onOpenEnquire={handleOpenEnquire} />
+        {/* SECTION 09 — FINAL NATURE MOMENT */}
+        <NatureMomentSection onOpenEnquire={handleOpenEnquire} />
       </main>
 
-      {/* 16. Footer */}
+      {/* FOOTER */}
       <Footer />
 
-      {/* Enquire Modal */}
-      <EnquireModal isOpen={enquireOpen} onClose={handleCloseEnquire} />
+      {/* ENQUIRE MODAL */}
+      <EnquireModal isOpen={enquireOpen} onClose={handleCloseEnquire} selectedProject={selectedProject} />
     </div>
   )
 }

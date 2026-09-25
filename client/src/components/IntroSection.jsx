@@ -1,12 +1,12 @@
-import { introData } from '../data/content'
+import { aboutData } from '../data/content'
 
 export default function IntroSection() {
   return (
     <section className="hodu-section hodu-intro" id="about">
-      {/* Realistic Nature Villa Background Landscape */}
+      {/* Nature-led visual background */}
       <div className="hodu-intro__bg">
         <img
-          src="/media/hodu-why-hero.png"
+          src={aboutData.bgImage}
           alt="HODU Nature Villa Architecture Landscape"
           className="hodu-intro__bg-img"
           loading="lazy"
@@ -17,23 +17,21 @@ export default function IntroSection() {
       <div className="hodu-container hodu-intro__container">
         <div className="hodu-intro__header">
           <div className="hodu-intro__eyebrow-wrapper">
-            <span className="hodu-eyebrow">{introData.eyebrow}</span>
+            <span className="hodu-eyebrow">{aboutData.eyebrow}</span>
             <span className="hodu-intro__eyebrow-line" />
           </div>
 
           <h2 className="hodu-intro__heading">
-            WE DON'T SIMPLY BUILD VILLAS.
+            {aboutData.headingLine1}
             <br />
-            WE BUILD PLACES TO LIVE
-            <br />
-            NATURALLY.
+            {aboutData.headingLine2}
           </h2>
 
-          <p className="hodu-intro__lead">{introData.body}</p>
+          <p className="hodu-intro__lead">{aboutData.body}</p>
         </div>
 
         <div className="hodu-intro__grid">
-          {introData.blocks.map((block) => (
+          {aboutData.blocks.map((block) => (
             <div key={block.num} className="hodu-intro__card">
               <span className="hodu-intro__num">{block.num}</span>
               <h3 className="hodu-intro__card-title">{block.title}</h3>
@@ -46,3 +44,4 @@ export default function IntroSection() {
     </section>
   )
 }
+

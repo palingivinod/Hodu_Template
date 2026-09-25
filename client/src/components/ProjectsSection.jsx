@@ -52,7 +52,7 @@ export default function ProjectsSection({ onSelectProject }) {
                   className="hodu-project-card__cta"
                   style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
                 >
-                  <span>VIEW VILLA PLAN &amp; DETAILS</span>
+                  <span>VIEW PROJECT</span>
                   <span>→</span>
                 </button>
               </div>

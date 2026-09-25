@@ -13,15 +13,17 @@ export default function Hero({ onOpenEnquire }) {
           className="hodu-hero__video"
         >
           <source src={heroData.videoSrc} type="video/mp4" />
-          <img src={heroData.fallbackImg} alt="HODU Luxury Villa" className="hodu-hero__img" />
+          <img src={heroData.fallbackImg} alt="HODU Luxury Villa Design & Construction" className="hodu-hero__img" />
         </video>
+        <div className="hodu-hero__overlay" />
       </div>
 
       <div className="hodu-container hodu-hero__container">
         <div className="hodu-hero__content">
-          <span className="hodu-hero__eyebrow">{heroData.eyebrow}</span>
           <h1 className="hodu-hero__title">{heroData.title}</h1>
           <p className="hodu-hero__subtitle">{heroData.subtitle}</p>
+
+
         </div>
       </div>
 
@@ -29,8 +31,8 @@ export default function Hero({ onOpenEnquire }) {
         <div className="hodu-hero__scroll-icon">
           <div className="hodu-hero__scroll-dot" />
         </div>
-        <span>EXPLORE SANCTUARY</span>
       </a>
     </section>
   )
 }
+

@@ -15,10 +15,6 @@ export default function Header({ onOpenEnquire }) {
 
   const navLinks = [
     { name: 'Home', href: '#top' },
-    { name: 'About', href: '#about' },
-    { name: 'How We Build', href: '#process' },
-    { name: 'Villas', href: '#villas' },
-    { name: 'Craft', href: '#craft' },
     { name: 'Contact', href: '#contact' },
   ]
 
@@ -26,8 +22,8 @@ export default function Header({ onOpenEnquire }) {
     <>
       <header className={`hodu-header ${scrolled ? 'hodu-header--scrolled' : ''}`}>
         <div className="hodu-container hodu-header__inner">
-          <a href="#top" className="hodu-header__brand">
-            {brand.name}
+          <a href="#top" className="hodu-header__brand" aria-label="HODU Home">
+            <img src="/media/hodu-logo.jpg" alt="HODU" className="hodu-header__logo-img" />
           </a>
 
           <nav className="hodu-header__nav" aria-label="Main Navigation">
@@ -41,7 +37,7 @@ export default function Header({ onOpenEnquire }) {
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
             <button
               onClick={onOpenEnquire}
-              className={`hodu-btn ${scrolled ? 'hodu-btn--primary' : 'hodu-btn--light'} hodu-header__btn`}
+              className="hodu-btn hodu-btn--primary hodu-header__btn"
             >
               START YOUR PROJECT
             </button>

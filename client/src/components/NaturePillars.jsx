@@ -17,11 +17,6 @@ export default function NaturePillars() {
       <div className="hodu-container hodu-biophilic__container">
         {/* Top Header Area */}
         <div className="hodu-biophilic__head">
-          <div className="hodu-biophilic-pill">
-            <span className="hodu-biophilic-pill__icon">🌿</span>
-            <span>{naturePillarsData.eyebrow}</span>
-          </div>
-
           <h2 className="hodu-biophilic__heading">
             {naturePillarsData.heading}
           </h2>
