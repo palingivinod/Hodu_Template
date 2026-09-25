@@ -533,8 +533,8 @@ body {
   position: relative;
   overflow: hidden;
   padding: 7.5rem 0;
-  background-color: #F3F0E7;
-  color: #252724;
+  background-color: #162419;
+  color: #FFFFFF;
 }
 
 .hodu-intro__bg {
@@ -550,9 +550,9 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: right center;
-  opacity: 0.85;
-  filter: contrast(1.05) saturate(1.1);
+  object-position: center;
+  opacity: 1;
+  filter: brightness(0.55) contrast(1.1) !important;
 }
 
 .hodu-intro__bg-overlay {
@@ -560,17 +560,10 @@ body {
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(243, 240, 231, 0.99) 0%,
-    rgba(243, 240, 231, 0.95) 45%,
-    rgba(243, 240, 231, 0.72) 72%,
-    rgba(243, 240, 231, 0.15) 100%
-  ),
-  linear-gradient(
-    180deg,
-    rgba(244, 241, 233, 0.98) 0%,
-    rgba(243, 240, 231, 0.25) 20%,
-    rgba(243, 240, 231, 0.25) 80%,
-    rgba(238, 242, 236, 0.98) 100%
+    rgba(22, 36, 25, 0.85) 0%,
+    rgba(22, 36, 25, 0.65) 45%,
+    rgba(22, 36, 25, 0.3) 75%,
+    rgba(22, 36, 25, 0.1) 100%
   );
   z-index: 2;
 }
@@ -582,6 +575,9 @@ body {
 
 .hodu-intro__header {
   margin-bottom: 4rem;
+  text-align: left;
+  margin-left: 0;
+  max-width: 840px;
 }
 
 .hodu-intro__eyebrow-wrapper {
@@ -592,7 +588,7 @@ body {
 }
 
 .hodu-intro .hodu-eyebrow {
-  color: #8B735C;
+  color: #D9CDB9;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -603,8 +599,8 @@ body {
 .hodu-intro__eyebrow-line {
   width: 45px;
   height: 1px;
-  background-color: #8B735C;
-  opacity: 0.6;
+  background-color: #D9CDB9;
+  opacity: 0.5;
 }
 
 .hodu-intro__heading {
@@ -612,18 +608,20 @@ body {
   font-size: clamp(2.3rem, 4.4vw, 3.6rem);
   font-weight: 500;
   line-height: 1.15;
-  color: #252724;
+  color: #FFFFFF;
   margin-bottom: 2rem;
   max-width: 860px;
   letter-spacing: -0.01em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
 .hodu-intro__lead {
   font-family: var(--font-sans);
   font-size: clamp(1.025rem, 1.35vw, 1.2rem);
   line-height: 1.75;
-  color: #3A3D38;
+  color: #E2EFE0;
   max-width: 760px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hodu-intro__grid {
@@ -631,7 +629,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 3.5rem;
   padding-top: 3.5rem;
-  border-top: 1px solid #D8CCB7;
+  border-top: 1px solid rgba(217, 205, 185, 0.25);
   position: relative;
 }
 
@@ -647,8 +645,7 @@ body {
     bottom: 0;
     left: -1.75rem;
     width: 1px;
-    background-color: #D8CCB7;
-    opacity: 0.55;
+    background-color: rgba(217, 205, 185, 0.25);
   }
 }
 
@@ -657,7 +654,7 @@ body {
   font-size: 0.825rem;
   font-weight: 700;
   letter-spacing: 0.15em;
-  color: #8B735C;
+  color: #D9CDB9;
   margin-bottom: 1.25rem;
   display: block;
 }
@@ -667,22 +664,22 @@ body {
   font-size: 1.45rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: #252724;
+  color: #FFFFFF;
   margin-bottom: 0.75rem;
 }
 
 .hodu-intro__card-desc {
   font-size: 0.925rem;
   line-height: 1.65;
-  color: #434741;
+  color: #E2EFE0;
   margin-bottom: 1.5rem;
 }
 
 .hodu-intro__card-line {
   width: 32px;
   height: 2px;
-  background-color: #8B735C;
-  opacity: 0.7;
+  background-color: #D9CDB9;
+  opacity: 0.6;
 }
 
 /* ==========================================================================
