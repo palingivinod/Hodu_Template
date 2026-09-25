@@ -34,7 +34,8 @@ export const introData = {
   headingLine1: "WE DON'T SIMPLY BUILD VILLAS.",
   headingLine2: 'WE BUILD PLACES TO LIVE NATURALLY.',
   body:
-    'Every HODU home begins with an understanding of the land, the natural breeze, sunlight patterns, and the people who will live there. From architecture and engineering to construction, interiors and native landscape, we bring the entire process together under one roof.',
+    'Every HODU home begins with an understanding of the land, natural breeze, sunlight patterns and the people who will live there. From architecture and engineering to construction, interiors and native landscape, we bring the entire process together under one roof.',
+  bgImage: '/media/hodu-philosophy-landscape.png',
   blocks: [
     {
       num: '01',
@@ -44,12 +45,12 @@ export const introData = {
     {
       num: '02',
       title: 'LANDSCAPE',
-      desc: 'Native trees, garden pathways and reflection ponds planned alongside the villa structure.',
+      desc: 'Native trees, garden pathways and outdoor spaces planned alongside the villa structure.',
     },
     {
       num: '03',
       title: 'CRAFT',
-      desc: 'Natural stone, teak wood and concrete details carefully built to age gracefully over time.',
+      desc: 'Natural stone, teak wood and carefully considered construction details designed to age gracefully.',
     },
   ],
 }
