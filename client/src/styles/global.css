@@ -301,11 +301,7 @@ body {
   height: 38px;
   width: auto;
   object-fit: contain;
-  background-color: #FFFFFF;
-  padding: 4px 12px;
-  border-radius: 4px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-  border: 1px solid var(--hodu-border-light);
+  display: block;
   transition: transform 0.3s ease;
 }
 
@@ -394,14 +390,19 @@ body {
 }
 
 /* ==========================================================================
-   07. HERO SECTION (Video Background 100vh)
+   07. HERO SECTION (Video Background 80vh)
    ========================================================================== */
 .hodu-hero {
   position: relative;
   height: 80vh;
+  height: 80dvh;
   min-height: 80vh;
+  min-height: 80dvh;
+  max-height: 80vh;
+  max-height: 80dvh;
   display: flex;
   align-items: center;
+  justify-content: center;
   color: #FFFFFF;
   overflow: hidden;
 }
@@ -1451,11 +1452,7 @@ body {
   height: 44px;
   width: auto;
   object-fit: contain;
-  background-color: #FFFFFF;
-  padding: 5px 14px;
-  border-radius: 4px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: block;
   margin-bottom: 1rem;
   transition: transform 0.3s ease;
 }

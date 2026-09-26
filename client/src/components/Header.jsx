@@ -23,7 +23,7 @@ export default function Header({ onOpenEnquire }) {
       <header className={`hodu-header ${scrolled ? 'hodu-header--scrolled' : ''}`}>
         <div className="hodu-container hodu-header__inner">
           <a href="#top" className="hodu-header__brand" aria-label="HODU Home">
-            <img src="/media/hodu-logo.jpg" alt="HODU" className="hodu-header__logo-img" />
+            <img src="/brand/logo-transparent.png" alt="HODU" className="hodu-header__logo-img" />
           </a>
 
           <nav className="hodu-header__nav" aria-label="Main Navigation">

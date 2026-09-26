@@ -34,7 +34,7 @@ export default function Footer() {
         <div className="hodu-footer__top">
           <div>
             <a href="#top" className="hodu-footer__brand" aria-label="HODU Home">
-              <img src="/media/hodu-logo.jpg" alt="HODU" className="hodu-footer__logo-img" />
+              <img src="/brand/logo-transparent.png" alt="HODU" className="hodu-footer__logo-img" />
             </a>
             <p className="hodu-footer__desc">{footerData.description}</p>
 

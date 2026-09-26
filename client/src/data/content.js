@@ -16,6 +16,8 @@ export const brand = {
   location: 'Vijayawada, Andhra Pradesh',
   address: 'Vijayawada, Andhra Pradesh 520008',
   reraNumber: 'AP RERA Approved Villa Construction',
+  logo: '/brand/logo-transparent.png',
+  logoTransparent: '/brand/logo-transparent.png',
 }
 
 export const heroData = {
